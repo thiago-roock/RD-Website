@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>My Podcast</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="My Podcast template project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/colorbox.css" rel="stylesheet" />
+    <link href="~/Content/main_styles.css" rel="stylesheet" />
+    <link href="~/Content/responsive.css" rel="stylesheet" />
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @RenderBody()
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/popper.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/TweenMax.min.js"></script>
+    <script src="~/Scripts/TimelineMax.min.js"></script>
+    <script src="~/Scripts/ScrollMagic.min.js"></script>
+    <script src="~/Scripts/animation.gsap.min.js"></script>
+    <script src="~/Scripts/ScrollToPlugin.min.js"></script>
+    <script src="~/Scripts/easing.js.js"></script>
+    <script src="~/Scripts/jquery.colorbox-min.js"></script>
+    <script src="~/Scripts/progressbar.min.js"></script>
+    <script src="~/Scripts/parallax.min.js"></script>
+    <script src="~/Scripts/custom.js"></script>
+</body>
+</html>
