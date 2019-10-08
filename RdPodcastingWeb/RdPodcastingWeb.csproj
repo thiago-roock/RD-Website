@@ -127,6 +127,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\about.css" />
+    <Content Include="Content\about_responsive.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\colorbox.css" />
     <Content Include="Content\font-awesome.min.css" />
@@ -203,6 +205,7 @@
     <Content Include="Imagens\vol-white.png" />
     <Content Include="Imagens\vol.png" />
     <Content Include="Imagens\weekly.jpg" />
+    <Content Include="Scripts\about.js" />
     <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\popper.js" />
@@ -229,6 +232,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Sobre.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
