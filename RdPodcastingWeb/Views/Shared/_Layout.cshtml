@@ -1,10 +1,10 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>My Podcast</title>
+    <title>RD Podcast</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="My Podcast template project">
+    <meta name="description" content="Um podcast ímpar para receber amigos, pessoas legais e você. Decidimos tudo de última hora, quase sempre ">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
@@ -26,7 +26,7 @@
 
             <!-- Logo -->
             <div class="logo">
-                <a href="#"><span>my</span>podcast<img src="~/Imagens/play.png" alt=""></a>
+                <a href="#"><span>RD</span>podcasting<img src="~/Imagens/play.png" alt=""></a>
             </div>
 
             <div class="container">
@@ -36,10 +36,10 @@
                             <nav class="main_nav">
                                 <ul class="d-flex flex-row align-items-start justify-content-start">
                                     <li><a href="@Url.Action("Index","Home")">Home</a></li>
-                                    <li><a href="@Url.Action("Sobre","Home")">About</a></li>
-                                    <li><a href="episodes.html">Episodes</a></li>
-                                    <li><a href="blog.html">Blog</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="@Url.Action("Sobre","Home")">Sobre</a></li>
+                                    <li><a href="episodes.html">Episódios</a></li>
+                                    <li><a href="https://desacocheioemauhumor.blog" target="_blank">Blog</a></li>
+                                    <li><a href="contact.html">Contatos</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -50,17 +50,15 @@
             <!-- Submit & Social -->
             <div class="header_right d-flex flex-row align-items-start justify-content-start">
 
-                <!-- Submit -->
-                <div class="submit"><a href="#">Submit a Podcast</a></div>
-
+                <!-- Submit
+                    <div class="submit"><a href="#">Enviar Podcast</a></div>-->
                 <!-- Social -->
                 <div class="social">
                     <ul class="d-flex flex-row align-items-start justify-content-start">
-                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-soundcloud" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.facebook.com/remediosdemais/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.instagram.com/rdpodcasting/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        <li><a href="https://soundcloud.com/desacocheioemauhumor"><i class="fa fa-soundcloud" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.megafono.host/podcast/remedios-demais"><i class="fa fa-feed" aria-hidden="true"></i></a></li>
                     </ul>
                 </div>
 
@@ -73,6 +71,357 @@
 
 
     @RenderBody()
+
+    <!-- Footer -->
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row footer_logo_row">
+                <div class="col d-flex flex-row align-items-center justify-content-center">
+                    <div class="logo">
+                        <a href="#"><span>Remédios demais</span>podcasting<img src="~/Imagens/play.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row footer_content_row">
+
+                <!-- Tags -->
+                <div class="col-lg-4">
+                    <div class="footer_title">Tags</div>
+                    <div class="footer_list">
+                        <div><div><a href="#">ansiedade</a></div></div>
+                        <div><div><a href="#">TOC</a></div></div>
+                        <div><div><a href="#">insônia </a></div></div>
+                        <div><div><a href="#">autismo</a></div></div>
+                        <div><div><a href="#">psicanalise</a></div></div>
+                        <div><div><a href="#">depressão</a></div></div>
+                        <div><div><a href="#">adicção</a></div></div>
+                        <div><div><a href="#">transtorno bipolar</a></div></div>
+                        <div><div><a href="#">Recaídas</a></div></div>
+                        <div><div><a href="#">Tiques Nervosos</a></div></div>
+                        <div><div><a href="#">Pensamentos Suicidas</a></div></div>
+                        <div><div><a href="#">Síndrome do Pânico</a></div></div>
+                    </div>
+                </div>
+
+                <!-- Latest Episodes -->
+                <div class="col-lg-4">
+                    <div class="footer_title">Últimos episódios</div>
+                    <div class="latest_container">
+
+                        <!-- Latest -->
+                        <div class="latest">
+                            <div class="latest_title_container d-flex flex-row align-items-start justify-content-start">
+                                <a href="episode.html">
+                                    <div class="d-flex flex-row align-items-start justify-content-start">
+                                        <div class="latest_play">
+                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 714 714" style="enable-background:new 0 0 714 714;" xml:space="preserve">
+                                            <g id="Play">
+                                            <path d="M641.045,318.521L102,0C73.822,0,51,22.822,51,51v612c0,28.178,22.822,51,51,51l539.045-318.521      C654.661,387.422,663,372.81,663,357C663,341.19,654.661,326.579,641.045,318.521z M153,565.386V148.614L505.665,357      L153,565.386z" fill="#FFFFFF" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+												</g>
+											</svg>
+                                        </div>
+                                        <div class="latest_title_content">
+                                            <div class="latest_title">Season 4 Episode 48 - A Step Further</div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="latest_episode_info">
+                                <ul class="d-flex flex-row align-items-start justify-content-start">
+                                    <li><a href="#">September 24, 2018</a></li>
+                                    <li><a href="#">Music</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Latest -->
+                        <div class="latest">
+                            <div class="latest_title_container d-flex flex-row align-items-start justify-content-start">
+                                <a href="episode.html">
+                                    <div class="d-flex flex-row align-items-start justify-content-start">
+                                        <div class="latest_play">
+                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 714 714" style="enable-background:new 0 0 714 714;" xml:space="preserve">
+                                            <g id="Play">
+                                            <path d="M641.045,318.521L102,0C73.822,0,51,22.822,51,51v612c0,28.178,22.822,51,51,51l539.045-318.521      C654.661,387.422,663,372.81,663,357C663,341.19,654.661,326.579,641.045,318.521z M153,565.386V148.614L505.665,357      L153,565.386z" fill="#FFFFFF" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+												</g>
+											</svg>
+                                        </div>
+                                        <div class="latest_title_content">
+                                            <div class="latest_title">Season 4 Episode 47 - Deep in Crypto</div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="latest_episode_info">
+                                <ul class="d-flex flex-row align-items-start justify-content-start">
+                                    <li><a href="#">September 24, 2018</a></li>
+                                    <li><a href="#">Music</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Latest -->
+                        <div class="latest">
+                            <div class="latest_title_container d-flex flex-row align-items-start justify-content-start">
+                                <a href="episode.html">
+                                    <div class="d-flex flex-row align-items-start justify-content-start">
+                                        <div class="latest_play">
+                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 714 714" style="enable-background:new 0 0 714 714;" xml:space="preserve">
+                                            <g id="Play">
+                                            <path d="M641.045,318.521L102,0C73.822,0,51,22.822,51,51v612c0,28.178,22.822,51,51,51l539.045-318.521      C654.661,387.422,663,372.81,663,357C663,341.19,654.661,326.579,641.045,318.521z M153,565.386V148.614L505.665,357      L153,565.386z" fill="#FFFFFF" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+												</g>
+											</svg>
+                                        </div>
+                                        <div class="latest_title_content">
+                                            <div class="latest_title">Season 4 Episode 46 - Nothing is real</div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="latest_episode_info">
+                                <ul class="d-flex flex-row align-items-start justify-content-start">
+                                    <li><a href="#">September 24, 2018</a></li>
+                                    <li><a href="#">Music</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Gallery -->
+                <div class="col-lg-4">
+                    <div class="footer_title">Instagram</div>
+                    <div class="gallery d-flex flex-row align-items-start justify-content-start flex-wrap">
+
+                        <!-- Gallery Item -->
+                        <div class="gallery_item">
+                            <a class="colorbox" href="~/Imagens/banner01.png"><img src="~/Imagens/banner01.png" alt=""></a>
+                        </div>
+
+                        <!-- Gallery Item -->
+                        <div class="gallery_item">
+                            <a class="colorbox" href="~/Imagens/banner02.jpg"><img src="~/Imagens/banner02.jpg" alt=""></a>
+                        </div>
+
+                        <!-- Gallery Item -->
+                        <div class="gallery_item">
+                            <a class="colorbox" href="~/Imagens/banner04.png"><img src="~/Imagens/banner04.png" alt=""></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row footer_social_row">
+                <div class="col">
+                    <div class="footer_social">
+                        <ul class="d-flex flex-row align-items-center justify-content-center">
+                            <li><a href="https://www.facebook.com/remediosdemais/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="https://www.instagram.com/rdpodcasting/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            <li><a href="https://soundcloud.com/desacocheioemauhumor" target="_blank"><i class="fa fa-soundcloud" aria-hidden="true"></i></a></li>
+                            <li><a href="https://www.megafono.host/podcast/remedios-demais" target="_blank"><i class="fa fa-feed" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            </br></br><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;
+            <script>document.write(new Date().getFullYear());</script> uma produção <a href="https://desacocheioemauhumor.blog" target="_blank">De Saco Cheio e Mau Humor</a> | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
+        </div>
+    </footer>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

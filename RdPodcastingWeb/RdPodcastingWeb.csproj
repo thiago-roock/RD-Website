@@ -146,6 +146,10 @@
     <None Include="Scripts\animation.gsap.min.js" />
     <Content Include="Imagens\about.jpg" />
     <Content Include="Imagens\alarm-clock.svg" />
+    <Content Include="Imagens\banner01.png" />
+    <Content Include="Imagens\banner02.jpg" />
+    <Content Include="Imagens\banner03.png" />
+    <Content Include="Imagens\banner04.png" />
     <Content Include="Imagens\blog.jpg" />
     <Content Include="Imagens\blog_1.jpg" />
     <Content Include="Imagens\blog_2.jpg" />
@@ -180,6 +184,11 @@
     <Content Include="Imagens\newsletter.jpg" />
     <Content Include="Imagens\pause-white.png" />
     <Content Include="Imagens\pause.png" />
+    <Content Include="Imagens\pexels-photo-1626481.jpeg" />
+    <Content Include="Imagens\pexels-photo-248044.jpeg" />
+    <Content Include="Imagens\pexels-photo-261577.jpeg" />
+    <Content Include="Imagens\pexels-photo-373914.jpeg" />
+    <Content Include="Imagens\pexels-photo-568025.jpeg" />
     <Content Include="Imagens\play-2-white.png" />
     <Content Include="Imagens\play-2.png" />
     <Content Include="Imagens\play-2.svg" />
