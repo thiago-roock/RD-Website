@@ -176,8 +176,11 @@
     <Content Include="Imagens\guest_2.jpg" />
     <Content Include="Imagens\guest_3.jpg" />
     <Content Include="Imagens\heart.svg" />
+    <Content Include="Imagens\index.jpeg" />
     <Content Include="Imagens\index.jpg" />
+    <Content Include="Imagens\laner.jpg" />
     <Content Include="Imagens\man.png" />
+    <Content Include="Imagens\mesadegravações.JPG" />
     <Content Include="Imagens\milestones.jpg" />
     <Content Include="Imagens\mute-white.png" />
     <Content Include="Imagens\mute.png" />
@@ -185,6 +188,7 @@
     <Content Include="Imagens\pause-white.png" />
     <Content Include="Imagens\pause.png" />
     <Content Include="Imagens\pexels-photo-1626481.jpeg" />
+    <Content Include="Imagens\pexels-photo-1840320.jpeg" />
     <Content Include="Imagens\pexels-photo-248044.jpeg" />
     <Content Include="Imagens\pexels-photo-261577.jpeg" />
     <Content Include="Imagens\pexels-photo-373914.jpeg" />
@@ -209,6 +213,7 @@
     <Content Include="Imagens\speaker.svg" />
     <Content Include="Imagens\speech-bubble.svg" />
     <Content Include="Imagens\television.svg" />
+    <Content Include="Imagens\thiago.jpg" />
     <Content Include="Imagens\user_1.jpg" />
     <Content Include="Imagens\user_2.jpg" />
     <Content Include="Imagens\vol-white.png" />
