@@ -131,10 +131,13 @@
     <Content Include="Content\about_responsive.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\colorbox.css" />
+    <Content Include="Content\episodios.css" />
+    <Content Include="Content\episodios_responsive.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\main_styles.css" />
     <Content Include="Content\responsive.css" />
     <Content Include="favicon.ico" />
+    <Content Include="files\bensound-betterdays.mp3" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -221,7 +224,11 @@
     <Content Include="Imagens\weekly.jpg" />
     <Content Include="Scripts\about.js" />
     <Content Include="Scripts\custom.js" />
+    <Content Include="Scripts\episodios.js" />
+    <Content Include="Scripts\isotope.pkgd.min.js" />
+    <Content Include="Scripts\jplayer.playlist.min.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery.jplayer.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\ScrollToPlugin.min.js" />
@@ -247,6 +254,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Sobre.cshtml" />
+    <Content Include="Views\Home\Episodios.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
