@@ -30,10 +30,8 @@ namespace RdPodcastingWeb.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Contato()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }

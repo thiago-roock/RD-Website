@@ -131,6 +131,8 @@
     <Content Include="Content\about_responsive.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\colorbox.css" />
+    <Content Include="Content\contact.css" />
+    <Content Include="Content\contact_responsive.css" />
     <Content Include="Content\episodios.css" />
     <Content Include="Content\episodios_responsive.css" />
     <Content Include="Content\font-awesome.min.css" />
@@ -223,6 +225,7 @@
     <Content Include="Imagens\vol.png" />
     <Content Include="Imagens\weekly.jpg" />
     <Content Include="Scripts\about.js" />
+    <Content Include="Scripts\contact.js" />
     <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\episodios.js" />
     <Content Include="Scripts\isotope.pkgd.min.js" />
@@ -250,10 +253,10 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Sobre.cshtml" />
     <Content Include="Views\Home\Episodios.cshtml" />
+    <Content Include="Views\Home\Contato.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
