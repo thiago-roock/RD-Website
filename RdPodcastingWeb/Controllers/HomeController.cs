@@ -34,5 +34,10 @@ namespace RdPodcastingWeb.Controllers
         {
             return View();
         }
+
+        public ActionResult teste()
+        {
+            return View();
+        }
     }
 }
