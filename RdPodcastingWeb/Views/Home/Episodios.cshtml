@@ -1,4 +1,10 @@
-﻿
+﻿@{
+    ViewBag.Title = "Episódios";
+}
+
+<link href="~/Content/episodios.css" rel="stylesheet" />
+<link href="~/Content/episodios_responsive.css" rel="stylesheet" />
+
 <div class="super_container">
     <!-- Home -->
     <div class="home">
@@ -19,9 +25,6 @@
                     <div class="season_links">
                         <ul class="d-flex flex-row align-items-start justify-content-center flex-wrap">
                             <li class="item_filter_btn" data-filter="*">Primeira Temporada</li>
-                            @*<li class="item_filter_btn" data-filter=".s1">Season 1</li>
-                            <li class="item_filter_btn" data-filter=".s2">Season 2</li>
-                            <li class="item_filter_btn" data-filter=".s3">Season 3</li>*@
                         </ul>
                     </div>
                 </div>
@@ -31,15 +34,6 @@
                 <!-- Sidebar -->
                 <div class="col-lg-3">
                     <div class="sidebar">
-
-                        <!-- Search -->
-                        @*<div class="sidebar_search">
-                            <div class="sidebar_title">Search</div>
-                            <form action="#" class="search_form" id="search_form">
-                                <input type="text" class="search_input" placeholder="Search here" required="required">
-                                <button class="search_button"><img src="~/Imagens/search.png" alt=""></button>
-                            </form>
-                        </div>*@
 
                         <!-- Categories -->
                         <div class="sidebar_list">
@@ -64,17 +58,17 @@
                             <div class="sidebar_title">Tags</div>
                             <div class="tags">
                                 <ul class="d-flex flex-row align-items-start justify-content-start flex-wrap">
-                                   <li><a href="#">ansiedade</a></li>
-                                <li><a href="#">TOC</a></li>
-                                <li><a href="#">insônia</a></li>
-                                <li><a href="#">autismo</a></li>
-                                <li><a href="#">psicanalise</a></li>
-                                <li><a href="#">depressão</a></li>
-                                <li><a href="#">transtorno bipolar</a></li>
-                                <li><a href="#">Recaídas</a></li>
-                                <li><a href="#">Tiques Nervosos</a></li>
-                                <li><a href="#">Pensamentos Suicidas</a></li>
-                                <li><a href="#">Síndrome do Pânico</a></li>
+                                    <li><a href="#">ansiedade</a></li>
+                                    <li><a href="#">TOC</a></li>
+                                    <li><a href="#">insônia</a></li>
+                                    <li><a href="#">autismo</a></li>
+                                    <li><a href="#">psicanalise</a></li>
+                                    <li><a href="#">depressão</a></li>
+                                    <li><a href="#">transtorno bipolar</a></li>
+                                    <li><a href="#">Recaídas</a></li>
+                                    <li><a href="#">Tiques Nervosos</a></li>
+                                    <li><a href="#">Pensamentos Suicidas</a></li>
+                                    <li><a href="#">Síndrome do Pânico</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -104,26 +98,13 @@
                     <div class="episodes_container">
 
                         <!-- Episode -->
-                        <div class="episode d-flex flex-row align-items-start justify-content-start s1">
-                            <div>
-                                <div class="episode_image">
-                                    <img src="~/Imagens/banner01.png" alt="">
-                                    <div class="tags">
-                                        <ul class="d-flex flex-row align-items-start justify-content-start">
-                                            <li><a href="#">music</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="episode_content">
-                                <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/715393843&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                        <div class="episode">
 
+                            <iframe src="https://anchor.fm/remedios-demais-podcast/embed" height="100%" width="100%" frameborder="0" scrolling="no"></iframe>
 
-                            </div>
-                            </div>
                         </div>
 
-                      
+
 
                     </div>
                 </div>
@@ -133,7 +114,7 @@
                     <div class="page_nav d-flex flex-row align-items-center justify-content-center">
                         <ul class="d-flex flex-row">
                             <li class="active"><a href="#">1</a></li>
-                      
+
                             <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>

@@ -1,17 +1,24 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
     <title>RD Podcast</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0">
+    <meta http-equiv="cache-control" content="max-age=0">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+
     <meta name="description" content="Um podcast ímpar para receber amigos, pessoas legais e você. Decidimos tudo de última hora, quase sempre ">
+    <meta name="keywords" content="podcast hosting,free podcast hosting,make a podcast,making a podcast,create a podcast,creating a podcast,podcast sponsorships,sponsor a podcast,free,audio,recording,audio clip,anchor,podcasts,voice,microphone,podcast,podcast creation,record,conversation,discussion,talk,talking,radio,public radio,npr,startup,talk radio">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="~/Imagens/banner04.png" />
+
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
     <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Content/colorbox.css" rel="stylesheet" />
-    <link href="~/Content/episodios.css" rel="stylesheet" /> 
-    <link href="~/Content/episodios_responsive.css" rel="stylesheet" />
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -24,7 +31,7 @@
 
             <!-- Logo -->
             <div class="logo">
-                <a href="#"><span>RD</span>podcasting<img src="~/Imagens/play.png" alt=""></a>
+                <a href="@Url.Action("Index","Home")"><span>RD</span>podcasting<img class="lazyload" data-src="Imagens/play.png" alt=""></a>
             </div>
 
             <div class="container">
@@ -177,7 +184,7 @@
 
                 </br></br><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 Copyright &copy;
-                <script>document.write(new Date().getFullYear());</script> uma produção <a href="https://desacocheioemauhumor.blog" target="_blank">De Saco Cheio e Mau Humor</a> | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                <script async>document.write(new Date().getFullYear());</script> uma produção <a href="https://desacocheioemauhumor.blog" target="_blank">De Saco Cheio e Mau Humor</a> | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 
             </div>
@@ -187,29 +194,18 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 
-
-    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
-    <script src="~/Scripts/popper.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/TweenMax.min.js"></script>
-    <script src="~/Scripts/TimelineMax.min.js"></script>
-    <script src="~/Scripts/ScrollMagic.min.js"></script>
-    <script src="~/Scripts/animation.gsap.min.js"></script>
-    <script src="~/Scripts/ScrollToPlugin.min.js"></script>
-    <script src="~/Scripts/easing.js.js"></script>
-    <script src="~/Scripts/jquery.colorbox-min.js"></script>
-    <script src="~/Scripts/progressbar.min.js"></script>
-    <script src="~/Scripts/parallax.min.js"></script>
-
-
-    <script src="~/Scripts/jquery.jplayer.min.js"></script>
-    <script src="~/Scripts/jplayer.playlist.min.js"></script>
-    <script src="~/Scripts/isotope.pkgd.min.js"></script>
-
-    <script src="~/Scripts/episodios.js"></script>
-
-
-    <script src="~/Scripts/about.js"></script>
-    <script src="~/Scripts/custom.js"></script>
+   
+    <script async src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script async src="~/Scripts/bootstrap.min.js"></script>
+    <script async src="~/Scripts/TweenMax.min.js"></script>
+    <script async src="~/Scripts/TimelineMax.min.js"></script>
+    <script async src="~/Scripts/ScrollMagic.min.js"></script>
+    <script async src="~/Scripts/animation.gsap.min.js"></script>
+    <script async src="~/Scripts/ScrollToPlugin.min.js"></script>
+    <script async src="~/Scripts/easing.js.js"></script>
+    <script async src="~/Scripts/jquery.colorbox-min.js"></script>
+    <script async src="~/Scripts/progressbar.min.js"></script>
+    <script async src="~/Scripts/parallax.min.js"></script>
+    <script async src="~/Scripts/custom.js"></script>
 </body>
 </html>
