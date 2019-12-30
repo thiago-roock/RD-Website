@@ -146,6 +146,7 @@
     <None Include="Scripts\animation.gsap.min.js" />
     <Content Include="Imagens\about.jpg" />
     <Content Include="Imagens\alarm-clock.svg" />
+    <Content Include="Imagens\art-casual-close-up-3078404.jpg" />
     <Content Include="Imagens\banner01.png" />
     <Content Include="Imagens\banner02.jpg" />
     <Content Include="Imagens\banner03.png" />
