@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Covid19";
+    Layout = null;
+}
+<link href="~/Content/Covid.css" rel="stylesheet" />
+<h2>Covid19</h2>
+
+@if (ViewBag.CovidData != null)
+{
+
+    <table>
+        <tr>
+            <th>Última atualização</th>
+            <th>Mortos</th>
+            <th>Recuperados</th>
+            <th>Ativos</th>
+            <th>Confirmados</th>
+            <th>
+                País - Região
+            </th>
+        </tr>
+        <tr>
+            <td> @ViewBag.CovidData.Last_Update</td>
+            <td> @ViewBag.CovidData.Deaths</td>
+            <td>@ViewBag.CovidData.Recovered</td>
+            <td> @ViewBag.CovidData.Active</td>
+            <td> @ViewBag.CovidData.Confirmed</td>
+            <td> @ViewBag.CovidData.Country_Region</td>
+        </tr>
+    </table>
+
+    <blockquote>
+        Os dados utilizados nessa análise são mantidos e operados, pelo Centro de Ciência e Engenharia da Universidade Johns Hopkins (JHU CSSE). Além disso, com o apoio da ESRI Living Atlas Team e do Laboratório de Física Aplicada da Johns Hopkins University (JHU APL).
+    </blockquote>
+                        }
+                        else
+                        {
+                            <h3>Houve algum problema, tente novamente em alguns minutos.</h3>
+                        }
+
+
+
