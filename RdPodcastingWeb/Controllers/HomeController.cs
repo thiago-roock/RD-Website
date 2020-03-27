@@ -60,7 +60,16 @@ namespace RdPodcastingWeb.Controllers
                 _mes = AdicionarZero(DateTime.Now.Month.ToString());
                 _ano = DateTime.Now.Year.ToString();
             }
-            var covidData = await ConstruirObjetoDeHoje(_dia, _mes, _ano);
+            DataCovid19 covidData = null;
+            int subtrair = 0;
+            do
+            {
+                int diaLoop = string.IsNullOrEmpty(_dia) ? 0 : int.Parse(_dia) - subtrair;
+
+                covidData = await ConstruirObjetoDeHoje(diaLoop.ToString(), _mes, _ano);
+                subtrair += 1;
+            } while (covidData.Last_Update == null);
+           
 
             covidData.Last_Update = Convert.ToDateTime(covidData.Last_Update).ToString("D",
                 CultureInfo.CreateSpecificCulture("pt-BR"));
