@@ -44,9 +44,17 @@
                                             @resultado.ToString();
                                         } casos, se as pessoas não ficarem em quarentena.">
                                     @ViewBag.CovidData.Confirmed</td>
-                                    <td data-toggle="tooltip" data-placement="right" data-html="true" title="<em>Às pessoas costumam ficar </em> <u>doentes</u> em um periodo de <b>14 à 21 dias.</b>">> @ViewBag.CovidData.Active</td>
-                                    <td> @ViewBag.CovidData.Deaths</td>
-                                    <td>@ViewBag.CovidData.Recovered</td>
+                                    <td data-toggle="tooltip" data-placement="left" data-html="true" title="<em>Às pessoas costumam ficar </em> <u>doentes</u> em um periodo de <b>14 à 21 dias</b>, estamos falando de gente se recuperando ainda em
+                                        @{
+
+                                            var qtdeDeDias = DateTime.Now.AddDays(21).ToString("dd.MM.yyyy");
+                                            @qtdeDeDias.ToString();
+                                        }, então por favor, fique em casa de quarentena!">
+
+                                        @ViewBag.CovidData.Active
+                                    </td>
+                                    <td data-toggle="tooltip" data-placement="right" data-html="true" title="<em>Os casos graves de coronavírus</em> acontecem geralmente em <u>idosos, diabéticos e hipertensos.</u> Pessoas com doenças <b>cardiovasculares e pulmonares</b> também fazem parte do grupo de risco idependente da idade."> @ViewBag.CovidData.Deaths</td>
+                                    <td data-toggle="tooltip" data-placement="left" data-html="true" title="<em>O Coronavírus (COVID-19)</em> não é uma gripezinha ou resfriadinho, mas <u>pessoas jovens e pessoas sem o sistema imunológico prejudicado por doenças crônicas</u>, tendem a se recuperar dentro de um período de <b>11 à 14 dias.</b>">@ViewBag.CovidData.Recovered</td>
                                 </tr>
                             </tbody>
                         </table>
