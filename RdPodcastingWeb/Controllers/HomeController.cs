@@ -6,6 +6,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Helpers;
@@ -86,8 +87,6 @@ namespace RdPodcastingWeb.Controllers
             ViewBag.CovidMesAnterior = casosDoMes;
             return View();
         }
-
-
         public async Task<Covid19Mensal> CasosDoMesAtual()
         {
             Covid19Mensal obj = new Covid19Mensal() 
@@ -154,7 +153,6 @@ namespace RdPodcastingWeb.Controllers
             }
             return obj;
         }
-
         public async Task<Covid19Mensal> CasosDoMes(int mes,int ano = 2020)
         {
             
@@ -226,13 +224,11 @@ namespace RdPodcastingWeb.Controllers
         {
             return ultimo - primeiro;
         }
-
         public async Task<JsonResult> GetDataGraficoDias()
         {
             var lista = await ConstruirListaParaGraficos();
             return Json(lista,JsonRequestBehavior.AllowGet);
         }
-
         public async Task<Covid19Data> ConstruirListaParaGraficos()
         {
             string _dia = null;
@@ -286,31 +282,70 @@ namespace RdPodcastingWeb.Controllers
 
             return CovidData;
         }
+        private DataCovid19 montarObj(string dia, string mes, string ano)
+        {
+            var pathString = Server.MapPath("~/files/" +mes + "-" + dia + "-" + ano + ".csv");
+  
+            if (System.IO.File.Exists(pathString)) 
+            { 
+                var reader = encontrarArquivo(pathString);
+
+                if (reader != null)
+                {
+                    var resultado = popularListaDataCovid19(reader);
+                    return EncontrarPais(resultado);
+                }
+            }
+            return null;
+        }
         public async Task<DataCovid19> ConstruirObjetoDeHoje(string dia, string mes,string ano)
         {
+            var objDataCovid19 = montarObj(dia, mes, ano);
+            if (objDataCovid19 != null)
+                return objDataCovid19;
 
             var client = new HttpClient();
             string queryString = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/" + mes + "-" + dia + "-" + ano + ".csv";
 
-            var response = await client.GetAsync(queryString);
+            HttpResponseMessage response;
             try
             {
+                response = await client.GetAsync(queryString);
                 if (response.IsSuccessStatusCode)
                 {
-                    using (var reader = new StreamReader(await response.Content.ReadAsStreamAsync()))
+                    var rc = await response.Content.ReadAsStreamAsync();
+                    using (var reader = new StreamReader(rc))
                     {
-                        return EncontrarPais(new CsvReader(reader, CultureInfo.InvariantCulture)
-                            .GetRecords<DataCovid19>()
-                            .ToList());
+                        var resultado = popularListaDataCovid19(reader);
+                        var pathString = Server.MapPath("~/files/" + mes + "-" + dia + "-" + ano + ".csv");
+                        using (var sr = new StreamWriter(pathString, false, Encoding.UTF8))
+                        {
+                            using (var csv = new CsvWriter(sr, CultureInfo.InvariantCulture))
+                            {
+                                csv.WriteRecords(resultado);
+                            }
+                        }
+
+                        return EncontrarPais(resultado);
                     }
                 }
             }
-            catch
+            catch(Exception ex)
             {
                 return new DataCovid19() { Deaths = "0", Active = "0", Confirmed = "0", Recovered = "0" };
             }
 
             return new DataCovid19() { Deaths = "0", Active = "0", Confirmed = "0", Recovered = "0" };
+        }
+        public List<DataCovid19> popularListaDataCovid19(StreamReader reader)
+        {
+            return new CsvReader(reader, CultureInfo.InvariantCulture)
+                            .GetRecords<DataCovid19>()
+                            .ToList();
+        }
+        public StreamReader encontrarArquivo(string NomeArquivo)
+        {
+            return new StreamReader(NomeArquivo);
         }
         public DataCovid19 EncontrarPais(List<DataCovid19> listCovid, string NomeDoPais = "Brazil")
         {

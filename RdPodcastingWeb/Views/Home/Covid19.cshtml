@@ -8,14 +8,15 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    @*<link href="~/Content/Covid.css" rel="stylesheet" />*@
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <link href="~/Content/Covid.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1 class="text-center text-monospace">Progresso do <b class="font-weight-bolder">CORONAVÍRUS</b> no Brasil</h1>
+                <h1 class="text-center text-monospace">Progresso do <b class="font-weight-bolder text-danger">CORONAVÍRUS</b> no <span class="text-success">Brasil</span></h1>
 
 
                 @if (ViewBag.CovidData != null)
@@ -37,13 +38,14 @@
                             <tbody>
                                 <tr>
                                     <th scope="row">1</th>
-                                    <td data-toggle="tooltip" data-placement="right" data-html="true" title="<em>Cada pessoa infectada tem </em> <u>estimativa</u> de infectar <b>de 1 à 3 pessoas</b>, estamos falando em um total de 
+                                    <td data-toggle="tooltip" data-placement="right" data-html="true" title="<em>Cada pessoa infectada tem </em> <u>estimativa</u> de infectar <b>de 1 à 3 pessoas</b>, estamos falando em um total de
                                         @{
-                                        
+
                                           var resultado = int.Parse(ViewBag.CovidData.Confirmed) * 3;
                                             @resultado.ToString();
                                         } casos, se as pessoas não ficarem em quarentena.">
-                                    @ViewBag.CovidData.Confirmed</td>
+                                        @ViewBag.CovidData.Confirmed
+                                    </td>
                                     <td data-toggle="tooltip" data-placement="left" data-html="true" title="<em>Às pessoas costumam ficar </em> <u>doentes</u> em um periodo de <b>14 à 21 dias</b>, estamos falando de gente se recuperando ainda em
                                         @{
 
@@ -85,27 +87,49 @@
         <div class="col">
             <footer class="blockquote-footer">
                 <blockquote class="blockquote text-center">
-                    Os dados utilizados nessa <strong>análise</strong> são mantidos e operados, pelo <mark>Centro de Ciência e Engenharia da Universidade Johns Hopkins (JHU CSSE)</mark>. Além disso, com o apoio da <u>ESRI Living Atlas Team</u> e do <u>Laboratório de Física Aplicada da Johns Hopkins University (JHU APL)</u>.
+                    Os dados utilizados nessa <strong>análise</strong> são mantidos e operados, pelo <mark>Centro de Ciência e Engenharia da Universidade Johns Hopkins (JHU CSSE)</mark>. Além disso, com o apoio da <u>ESRI Living Atlas Team</u> e do <u>Laboratório de Física Aplicada da <a data-toggle="tooltip" data-placement="top" title="Clique aqui para conhecer o estudo" target="_blank" href="https://systems.jhu.edu/research/public-health/ncov/">Johns Hopkins University</a> (JHU APL)</u>.
                 </blockquote>
-                <p class="text-center"><strong>Copyright © @DateTime.Now.Year - <a href="@Url.Action("Index","Home")">Remédios Demais Podcast</a>.</strong> All rights reserved.</p>
+                <p class="text-center"><strong>Copyright © @DateTime.Now.Year - <a data-toggle="tooltip" data-placement="top" title="Clique aqui para conhecer o projeto" href="@Url.Action("Index","Home")">Remédios Demais Podcast</a>.</strong> All rights reserved.</p>
             </footer>
         </div>
     </div>
+    <div class="progress" id="PreLoaderBar">
+        <div class="indeterminate"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
     <script src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script async src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
     <script async src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 </body>
 </html>
-@*<script async src="https://code.jquery.com/jquery-git.min.js"></script>*@
+
+<script>
+    document.onreadystatechange = function () {
+        if (document.readyState == "loading")
+        {
+            console.log(document.readyState + ": agora estamos carregando o html5!");
+
+        }
+        if (document.readyState == "interactive")
+        {
+            console.log(document.readyState+": agora estamos carregando css3, js e boostrap!");
+
+        } else if (document.readyState === "complete") {
+            console.log(document.readyState + ": agora a página está quase lá, falta os gráficos!");
+            document.getElementById("PreLoaderBar").style.display = "none";
+        }
+    }
+</script>
 <script async>
-        $(document).ready(function () {
+        jQuery(document).ready(function () {
             google.charts.load('current', { packages: ['corechart'] });
             google.charts.setOnLoadCallback(drawChart);
             google.charts.setOnLoadCallback(drawChartDonout);
-
+            console.log();
+            console.log("Iniciando carregamento dos gráficos!");
             function drawChart() {
                 // Define the chart to be drawn.
                 var data = new google.visualization.DataTable();
@@ -128,6 +152,7 @@
                 // Instantiate and draw the chart.
                 var chart = new google.visualization.PieChart(document.getElementById('myPieChart'));
                 chart.draw(data, options);
+                console.log("gráficos 1: Carregado!");
             }
 
             function drawChartDonout() {
@@ -148,29 +173,26 @@
 
                 var chart = new google.visualization.PieChart(document.getElementById('donutchart_day'));
                 chart.draw(data, options);
+                console.log("gráficos 2: Carregado!");
             }
 
         });
 </script>
 
 <script async>
+    
     google.charts.load('current', { packages: ['line'] });
-    // Set a callback to run when the Google Visualization API is loaded.
-    $(document).ready(function () {
-        $.ajax(
+    
+        jQuery.get("/Home/GetDataGraficoDias/",
+            function (data,status)
             {
-                type: 'GET',
-                dataType: 'JSON',
-                url: '/Home/GetDataGraficoDias',
-                success:
-                    function (response) {
-
-
+                if (status == "success") {
+                    console.log("iniciando gráficos de linha!");
                         // Draw.
-                        drawGraph(response, 'linechart_material');
-                    }
-            });
-    });
+                    drawGraph(data, 'linechart_material');
+                }
+            })
+
 
     // Callback that creates and populates a data table,
     // instantiates the pie chart, passes in the data and
@@ -245,7 +267,7 @@
         var chart = new google.charts.Line(document.getElementById(elementId));
 
         chart.draw(data, google.charts.Line.convertOptions(options));
-
+        console.log("gráficos 3: Carregado!");
 
         var elementIdMensal = 'GraficoDeMeses';
         // Set chart options
@@ -315,14 +337,35 @@
         var chartMensal = new google.charts.Line(document.getElementById(elementIdMensal));
 
         chartMensal.draw(dataMensal, google.charts.Line.convertOptions(optionsMensal));
+        console.log("gráficos 4: Carregado!");
+        console.log();
+        console.log("Finalizando carregamento dos gráficos!");
+        console.log();
+        console.log("Página totalmente carregada!");
     }
 </script>
 <script async>
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
+    jQuery(function () {
+        jQuery('[data-toggle="tooltip"]').tooltip()
     })
 </script>
 
+
+<script async>
+    var time = new Date().getTime();
+    jQuery(document.body).bind("mousemove keypress", function (e) {
+        time = new Date().getTime();
+    });
+
+    function refresh() {
+        if (new Date().getTime() - time >= 600000)
+            window.location.reload(true);
+        else
+            setTimeout(refresh, 10000);
+    }
+
+    setTimeout(refresh, 10000);
+</script>
 
 
 
