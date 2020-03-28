@@ -440,3 +440,4 @@ C:\Users\thiag\Documents\GitHub\Site\RdPodcastingWeb\obj\Debug\RdPodcastingWeb.c
 C:\Users\thiag\Documents\GitHub\Site\RdPodcastingWeb\obj\Debug\RdPodcastingWeb.csproj.CopyComplete
 C:\Users\thiag\Documents\GitHub\Site\RdPodcastingWeb\obj\Debug\RdPodcastingWeb.dll
 C:\Users\thiag\Documents\GitHub\Site\RdPodcastingWeb\obj\Debug\RdPodcastingWeb.pdb
+C:\Users\thiag\Documents\GitHub\Site\RdPodcastingWeb\obj\Debug\RdPodcastingWeb.csprojAssemblyReference.cache

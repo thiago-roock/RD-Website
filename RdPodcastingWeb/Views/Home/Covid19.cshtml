@@ -21,7 +21,7 @@
 
                 @if (ViewBag.CovidData != null)
                 {
-                    <div class="table-responsive">
+                    <div class="table-responsive-sm">
                         <table class="table table-dark text-center">
                             <caption data-toggle="tooltip" data-placement="right" data-html="true" title="<em>Atualizado conforme os </em> <u>dados</u> <b>oficiais</b>">
                                 Última atualização: @ViewBag.CovidData.Last_Update
@@ -68,21 +68,23 @@
                     <h3>Houve algum problema, tente novamente em alguns minutos.</h3>
                 }
             </div>
-            <div class="w-100"></div>
-            <div class="col">
-                <div id="donutchart_day" style="border: 1px solid #ccc"></div>
-            </div>
-            <div class="col">
-                <div id="myPieChart" style="border: 1px solid #ccc"></div>
-            </div>
-            <div class="w-100"></div>
-            <div class="col">
-                <div id="GraficoDeDias" style="border: 1px solid #ccc"></div>
-            </div>
-            <div class="col">
-                <div id="GraficoDeMeses" style="border: 1px solid #ccc"></div>
-            </div>
         </div>
+    </div>
+    <div class="w-100"></div>
+    <div class="col">
+        <div id="donutchart_day"></div>
+    </div>
+    <div class="col">
+        <div id="myPieChart"></div>
+    </div>
+    <div class="w-100"></div>
+    <div class="col" id="chart_wrap3">
+        <div id="GraficoDeDias"></div>
+    </div>
+    <div class="w-100"></div>
+    <div class="col" id="chart_wrap4">
+        <div id="GraficoDeMeses"></div>
+    </div>
         <div class="w-100"></div>
         <div class="col">
             <footer class="blockquote-footer">
@@ -92,8 +94,8 @@
                 <p class="text-center"><strong>Copyright © @DateTime.Now.Year - <a data-toggle="tooltip" data-placement="top" title="Clique aqui para conhecer o projeto" href="@Url.Action("Index","Home")">Remédios Demais Podcast</a>.</strong> All rights reserved.</p>
             </footer>
         </div>
-    </div>
-    <div class="progress" id="PreLoaderBar">
+
+    <div class="progress desktop" id="PreLoaderBar">
         <div class="indeterminate"></div>
     </div>
 
@@ -125,9 +127,10 @@
 </script>
 <script async>
         jQuery(document).ready(function () {
-            google.charts.load('current', { packages: ['corechart'] });
+            google.charts.load('current', { packages: ['corechart','line'] });
             google.charts.setOnLoadCallback(drawChart);
-            google.charts.setOnLoadCallback(drawChartDonout);
+            google.charts.setOnLoadCallback(drawGraph);
+            google.charts.setOnLoadCallback(drawChartDonout);   
             console.log();
             console.log("Iniciando carregamento dos gráficos!");
             function drawChart() {
@@ -145,7 +148,7 @@
                     'legend': 'left',
                     'title': 'Aumento de casos de COVID-19 em relação ao mês anterior no Brasil',
                     'is3D': true,
-                    'width': 400,
+                    'width': '100%',
                     'height': 200
                 }
 
@@ -166,7 +169,7 @@
                 var options = {
                     title: 'Casos somente nesse mês',
                     pieHole: 0.2,
-                    width: 400,
+                    width: '100%',
                     height: 200,
                     legend: { position: 'left' }
                 };
@@ -180,34 +183,29 @@
 </script>
 
 <script async>
-    
-    google.charts.load('current', { packages: ['line'] });
-    
+  
         jQuery.get("/Home/GetDataGraficoDias/",
-            function (data,status)
+            function (ListaCovidData,status)
             {
+               
                 if (status == "success") {
                     console.log("iniciando gráficos de linha!");
-                        // Draw.
-                    drawGraph(data, 'linechart_material');
+                    drawGraph(ListaCovidData);
                 }
             })
 
-
-    // Callback that creates and populates a data table,
-    // instantiates the pie chart, passes in the data and
-    // draws it.
     function drawGraph(ListaCovidData) {
-
-        // Set chart options
+        if (ListaCovidData == null) return
+        var data = new google.visualization.DataTable();
         var options = {
             chart: {
                 title: 'Progresso por dia, sobre os casos de COVID-19',
-                subtitle: 'Somente no Brasil',
-                curveType: 'function'
+                subtitle: 'Somente no Brasil'
+
+               
             },
-            width: 600,
-            height: 400,
+            width: '100%',
+            height: 300,
             series: {
                 // Gives each series an axis name that matches the Y-axis below.
                 0: { axis: 'Temps' },
@@ -218,16 +216,14 @@
                 // Adds labels to each axis; they don't have to match the axis names.
                 y: {
                     Temps: { label: 'Quantidade (Infectados)' },
-                },
-                x: {
-                    0: { side: 'bottom' }
                 }
+               
             }
         };
         var elementId = 'GraficoDeDias';
 
         // Initialization.
-        var data = new google.visualization.DataTable();
+       
 
         // Setting.
         data.addColumn('number', 'dias');
@@ -236,16 +232,17 @@
         data.addColumn('number', 'Mortos');
         data.addColumn('number', 'Infectados curados');
 
-        // Processing.
-        for (var i = 0; i < ListaCovidData.ListaDias.length; i++) {
-            // Setting.
-            data.addRow([ListaCovidData.ListaDias[i].Dia,
-            ListaCovidData.ListaDias[i].CasosConfirmados,
-            // ListaCovidData.ListaDias[i].InfectadosEmTratamento,
-            ListaCovidData.ListaDias[i].Mortos,
-            ListaCovidData.ListaDias[i].InfectadosCurados]);
-        }
-
+       
+            // Processing.
+            for (var i = 0; i < ListaCovidData.ListaDias.length; i++) {
+                // Setting.
+                data.addRow([ListaCovidData.ListaDias[i].Dia,
+                ListaCovidData.ListaDias[i].CasosConfirmados,
+                // ListaCovidData.ListaDias[i].InfectadosEmTratamento,
+                ListaCovidData.ListaDias[i].Mortos,
+                ListaCovidData.ListaDias[i].InfectadosCurados]);
+            }
+         
         // Setting label.
         var view = new google.visualization.DataView(data);
         view.setColumns([0, 1,
@@ -265,9 +262,16 @@
         ]);
 
         var chart = new google.charts.Line(document.getElementById(elementId));
-
+        
         chart.draw(data, google.charts.Line.convertOptions(options));
+       
         console.log("gráficos 3: Carregado!");
+
+
+
+
+
+        //inicio do grafico 4
 
         var elementIdMensal = 'GraficoDeMeses';
         // Set chart options
@@ -275,10 +279,10 @@
             chart: {
                 title: 'Progresso por meses, sobre os casos de COVID-19',
                 subtitle: 'Somente no Brasil',
-                curveType: 'function'
+             
             },
-            width: 600,
-            height: 400,
+            width: '100%',
+            height: 300,
             series: {
                 // Gives each series an axis name that matches the Y-axis below.
                 0: { axis: 'Temps' },
@@ -290,10 +294,9 @@
                 y: {
                     Temps: { label: 'Quantidade (Infectados)' },
                 },
-                x: {
-                    0: { side: 'bottom' }
-                }
+                
             }
+
         };
 
         // Initialization.

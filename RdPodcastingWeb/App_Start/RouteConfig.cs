@@ -16,7 +16,7 @@ namespace RdPodcastingWeb
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{dataBusca}",
-                defaults: new { controller = "Home", action = "Covid19", dataBusca = "start" }
+                defaults: new { controller = "Home", action = "Index", dataBusca = "start" }
             );
         }
     }

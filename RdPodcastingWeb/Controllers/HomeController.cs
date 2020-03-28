@@ -61,7 +61,7 @@ namespace RdPodcastingWeb.Controllers
                 _mes = AdicionarZero(DateTime.Now.Month.ToString());
                 _ano = DateTime.Now.Year.ToString();
             }
-            DataCovid19 covidData = null;
+            DataCovid19 covidData;
             int subtrair = 0;
             do
             {

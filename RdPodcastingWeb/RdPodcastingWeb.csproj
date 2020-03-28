@@ -258,7 +258,6 @@
     <Content Include="Content\main_styles.css" />
     <Content Include="Content\responsive.css" />
     <Content Include="favicon.ico" />
-    <Content Include="files\bensound-betterdays.mp3" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -267,6 +266,12 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="files\03-22-2020.csv" />
+    <Content Include="files\03-23-2020.csv" />
+    <Content Include="files\03-24-2020.csv" />
+    <Content Include="files\03-25-2020.csv" />
+    <Content Include="files\03-26-2020.csv" />
+    <Content Include="files\03-27-2020.csv" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\animation.gsap.min.js" />
     <Content Include="Imagens\about.jpg" />
