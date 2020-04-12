@@ -6,19 +6,22 @@
 <!doctype html>
 <html lang="pt-br">
 <head>
+    <title>@ViewBag.Title</title>
+    <meta name="description" content="Dashboard sobre os infectados do coronavírus no Brasil">
+    <meta name="keywords" content="Covid19,covid-19,coronavirus,coronavírus,quarentena,pandemia,fiqueemcasa">
+    <meta name="author" content="Thiago de Melo Lima">
+    <link rel="icon" type="image/x-icon" href="~/Imagens/banner04.png" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <link href="~/Content/Covid.css" rel="stylesheet" />
+    <link href="~/Content/Covid.css" rel="preload" media="print" />
+    <link href="https://stackpath.bootstrapcdn.com/" rel="preconnect">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h1 class="text-center text-monospace">Progresso do <b class="font-weight-bolder text-danger">CORONAVÍRUS</b> no <span class="text-success">Brasil</span></h1>
-
-
+    <div class="container" id="MinhaCaixa">
+        <div class="row" id="topo">
+            <h1 class="text-center text-monospace" id="topoTitulo">Progresso do <b class="font-weight-bolder text-danger">CORONAVÍRUS</b> no <span class="text-success">Brasil</span></h1>
+            <div class="col-sm">
                 @if (ViewBag.CovidData != null)
                 {
                     <div class="table-responsive-sm">
@@ -68,47 +71,45 @@
                     <h3>Houve algum problema, tente novamente em alguns minutos.</h3>
                 }
             </div>
+            <div class="col-sm">
+                <div id="donutchart_day"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="GraficoDeMeses"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <footer class="blockquote-footer" id="FimDaPagina">
+                    <blockquote class="blockquote text-justify">
+                        Os dados utilizados nessa <strong>análise</strong> são mantidos e operados, pelo <mark>Centro de Ciência e Engenharia da Universidade Johns Hopkins (JHU CSSE)</mark>. Além disso, com o apoio da <u>ESRI Living Atlas Team</u> e do <u>Laboratório de Física Aplicada da <a data-toggle="tooltip" data-placement="top" title="Clique aqui para conhecer o estudo" target="_blank" rel="noreferrer" href="https://systems.jhu.edu/research/public-health/ncov/">Johns Hopkins University</a> (JHU APL)</u>.
+                    </blockquote>
+                    <p class="text-center"><strong>Copyright © @DateTime.Now.Year - <a data-toggle="tooltip" data-placement="top" title="Clique aqui para conhecer o projeto" href="@Url.Action("Index","Home")">Remédios Demais Podcast</a>.</strong> All rights reserved.</p>
+                </footer>
+            </div>
         </div>
     </div>
-    <div class="w-100"></div>
-    <div class="col">
-        <div id="donutchart_day"></div>
-    </div>
-    <div class="col">
-        <div id="myPieChart"></div>
-    </div>
-    <div class="w-100"></div>
-    <div class="col" id="chart_wrap3">
-        <div id="GraficoDeDias"></div>
-    </div>
-    <div class="w-100"></div>
-    <div class="col" id="chart_wrap4">
-        <div id="GraficoDeMeses"></div>
-    </div>
-        <div class="w-100"></div>
-        <div class="col">
-            <footer class="blockquote-footer">
-                <blockquote class="blockquote text-center">
-                    Os dados utilizados nessa <strong>análise</strong> são mantidos e operados, pelo <mark>Centro de Ciência e Engenharia da Universidade Johns Hopkins (JHU CSSE)</mark>. Além disso, com o apoio da <u>ESRI Living Atlas Team</u> e do <u>Laboratório de Física Aplicada da <a data-toggle="tooltip" data-placement="top" title="Clique aqui para conhecer o estudo" target="_blank" href="https://systems.jhu.edu/research/public-health/ncov/">Johns Hopkins University</a> (JHU APL)</u>.
-                </blockquote>
-                <p class="text-center"><strong>Copyright © @DateTime.Now.Year - <a data-toggle="tooltip" data-placement="top" title="Clique aqui para conhecer o projeto" href="@Url.Action("Index","Home")">Remédios Demais Podcast</a>.</strong> All rights reserved.</p>
-            </footer>
-        </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
-    <div class="progress desktop" id="PreLoaderBar">
-        <div class="indeterminate"></div>
-    </div>
+    <script async src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script async src="https://www.gstatic.com/charts/loader.js"></script>
 
     <script async src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 </body>
 </html>
 
+
 <script>
+    function preconnectTo(url) {
+        var hint = document.createElement("link");
+        hint.rel = "preconnect";
+        hint.href = url;
+        document.head.appendChild(hint);
+    }
     document.onreadystatechange = function () {
         if (document.readyState == "loading")
         {
@@ -121,42 +122,18 @@
 
         } else if (document.readyState === "complete") {
             console.log(document.readyState + ": agora a página está quase lá, falta os gráficos!");
-            document.getElementById("PreLoaderBar").style.display = "none";
+        
         }
     }
 </script>
 <script async>
-        jQuery(document).ready(function () {
-            google.charts.load('current', { packages: ['corechart','line'] });
-            google.charts.setOnLoadCallback(drawChart);
-            google.charts.setOnLoadCallback(drawGraph);
-            google.charts.setOnLoadCallback(drawChartDonout);   
-            console.log();
-            console.log("Iniciando carregamento dos gráficos!");
-            function drawChart() {
-                // Define the chart to be drawn.
-                var data = new google.visualization.DataTable();
-                data.addColumn('string', 'Element');
-                data.addColumn('number', 'Percentage');
-                data.addRows([
-                    ['Aumento de Infectados em tratamento',@ViewBag.CovidMesAtual.InfectadosEmTratamento - @ViewBag.CovidMesAnterior.InfectadosEmTratamento],
-                    ['Aumento de Mortos', @ViewBag.CovidMesAtual.Mortos - @ViewBag.CovidMesAnterior.Mortos],
-                    ['Aumento de Infectados curados', @ViewBag.CovidMesAtual.InfectadosCurados - @ViewBag.CovidMesAnterior.InfectadosCurados]
-                ]);
-
-                var options = {
-                    'legend': 'left',
-                    'title': 'Aumento de casos de COVID-19 em relação ao mês anterior no Brasil',
-                    'is3D': true,
-                    'width': '100%',
-                    'height': 200
-                }
-
-                // Instantiate and draw the chart.
-                var chart = new google.visualization.PieChart(document.getElementById('myPieChart'));
-                chart.draw(data, options);
-                console.log("gráficos 1: Carregado!");
-            }
+    jQuery(document).ready(function () {
+        google.charts.load('current', { packages: ['corechart', 'line'] });
+        google.charts.setOnLoadCallback(drawGraph);
+        google.charts.setOnLoadCallback(drawChartDonout);
+      
+        console.log();
+        console.log("Iniciando carregamento dos gráficos!");
 
             function drawChartDonout() {
                 var data = google.visualization.arrayToDataTable([
@@ -168,15 +145,15 @@
 
                 var options = {
                     title: 'Casos somente nesse mês',
-                    pieHole: 0.2,
-                    width: '100%',
+                    pieHole: 0.4,
+                    width: '50%',
                     height: 200,
-                    legend: { position: 'left' }
+                    legend: { position: 'right' }
                 };
 
                 var chart = new google.visualization.PieChart(document.getElementById('donutchart_day'));
                 chart.draw(data, options);
-                console.log("gráficos 2: Carregado!");
+                console.log("gráficos 1: Carregado!");
             }
 
         });
@@ -184,142 +161,68 @@
 
 <script async>
   
-        jQuery.get("/Home/GetDataGraficoDias/",
-            function (ListaCovidData,status)
-            {
-               
-                if (status == "success") {
-                    console.log("iniciando gráficos de linha!");
-                    drawGraph(ListaCovidData);
-                }
-            })
+    jQuery.get("/Home/GetDataGraficoDias/",
+        function (ListaCovidData, status) {
+
+            if (status == "success") {
+                console.log("iniciando gráficos de linha!");
+                drawGraph(ListaCovidData);
+            }
+            Carregartooltips();
+        });
 
     function drawGraph(ListaCovidData) {
         if (ListaCovidData == null) return
-        var data = new google.visualization.DataTable();
-        var options = {
-            chart: {
-                title: 'Progresso por dia, sobre os casos de COVID-19',
-                subtitle: 'Somente no Brasil'
-
-               
-            },
-            width: '100%',
-            height: 300,
-            series: {
-                // Gives each series an axis name that matches the Y-axis below.
-                0: { axis: 'Temps' },
-                1: { axis: 'Temps' },
-                2: { axis: 'Temps' }
-            },
-            axes: {
-                // Adds labels to each axis; they don't have to match the axis names.
-                y: {
-                    Temps: { label: 'Quantidade (Infectados)' },
-                }
-               
-            }
-        };
-        var elementId = 'GraficoDeDias';
-
-        // Initialization.
-       
-
-        // Setting.
-        data.addColumn('number', 'dias');
-        data.addColumn('number', 'Casos confirmados');
-        //data.addColumn('number', 'Infectados em tratamento');
-        data.addColumn('number', 'Mortos');
-        data.addColumn('number', 'Infectados curados');
-
-       
-            // Processing.
-            for (var i = 0; i < ListaCovidData.ListaDias.length; i++) {
-                // Setting.
-                data.addRow([ListaCovidData.ListaDias[i].Dia,
-                ListaCovidData.ListaDias[i].CasosConfirmados,
-                // ListaCovidData.ListaDias[i].InfectadosEmTratamento,
-                ListaCovidData.ListaDias[i].Mortos,
-                ListaCovidData.ListaDias[i].InfectadosCurados]);
-            }
-         
-        // Setting label.
-        var view = new google.visualization.DataView(data);
-        view.setColumns([0, 1,
-            {
-                calc: "stringify",
-                sourceColumn: 1,
-                type: "string",
-                role: "annotation"
-            },
-            2,
-            {
-                calc: "stringify",
-                sourceColumn: 2,
-                type: "string",
-                role: "annotation"
-            }
-        ]);
-
-        var chart = new google.charts.Line(document.getElementById(elementId));
-        
-        chart.draw(data, google.charts.Line.convertOptions(options));
-       
-        console.log("gráficos 3: Carregado!");
-
-
-
-
-
-        //inicio do grafico 4
-
         var elementIdMensal = 'GraficoDeMeses';
         // Set chart options
         var optionsMensal = {
             chart: {
                 title: 'Progresso por meses, sobre os casos de COVID-19',
                 subtitle: 'Somente no Brasil',
-             
+               
             },
-            width: '100%',
+            width: 1000,
             height: 300,
             series: {
                 // Gives each series an axis name that matches the Y-axis below.
-                0: { axis: 'Temps' },
-                1: { axis: 'Temps' },
-                2: { axis: 'Temps' }
+                0: { axis: 'linha01' },
+                1: { axis: 'linha02' },
+                2: { axis: 'linha03' }
             },
             axes: {
                 // Adds labels to each axis; they don't have to match the axis names.
                 y: {
-                    Temps: { label: 'Quantidade (Infectados)' },
+                    linha01: { label: 'Quantidade (Confirmados)' },
+                    linha02: { label: 'Quantidade (Mortos)' },
+                    linha03: { label: 'Quantidade (Curados)' },
                 },
+                h: {
+                    curveType: 'function',
+                    legend: { position: 'bottom' }
+                },
+                x: {
+                    0: { side: 'bottom' }
+                }
                 
             }
 
         };
 
-        // Initialization.
         var dataMensal = new google.visualization.DataTable();
 
-        // Setting.
         dataMensal.addColumn('string', 'Meses');
         dataMensal.addColumn('number', 'Casos confirmados');
-        //data.addColumn('number', 'Infectados em tratamento');
         dataMensal.addColumn('number', 'Mortos');
         dataMensal.addColumn('number', 'Infectados curados');
 
-        // Processing.
-        for (var i = 0; i < ListaCovidData.ListaMes.length; i++) {
-            // Setting.
+        for (var i = 0; i < ListaCovidData.ListaMes.length; i++)
+        {
             dataMensal.addRow([ListaCovidData.ListaMes[i].Mes,
             ListaCovidData.ListaMes[i].CasosConfirmados,
-            // ListaCovidData.ListaDias[i].InfectadosEmTratamento,
             ListaCovidData.ListaMes[i].Mortos,
             ListaCovidData.ListaMes[i].InfectadosCurados]);
         }
 
-        // Setting label.
         var viewMensal = new google.visualization.DataView(dataMensal);
         viewMensal.setColumns([0, 1,
             {
@@ -340,38 +243,17 @@
         var chartMensal = new google.charts.Line(document.getElementById(elementIdMensal));
 
         chartMensal.draw(dataMensal, google.charts.Line.convertOptions(optionsMensal));
-        console.log("gráficos 4: Carregado!");
+        console.log("gráficos 2: Carregado!");
         console.log();
         console.log("Finalizando carregamento dos gráficos!");
         console.log();
         console.log("Página totalmente carregada!");
     }
-</script>
-<script async>
-    jQuery(function () {
-        jQuery('[data-toggle="tooltip"]').tooltip()
-    })
-</script>
 
-
-<script async>
-    var time = new Date().getTime();
-    jQuery(document.body).bind("mousemove keypress", function (e) {
-        time = new Date().getTime();
-    });
-
-    function refresh() {
-        if (new Date().getTime() - time >= 600000)
-            window.location.reload(true);
-        else
-            setTimeout(refresh, 10000);
+    function Carregartooltips()
+    {
+        console.log("ativando tooltips");
+        jQuery('[data-toggle="tooltip"]').tooltip();
+        console.log("tooltips ativados");
     }
-
-    setTimeout(refresh, 10000);
 </script>
-
-
-
-
-
-

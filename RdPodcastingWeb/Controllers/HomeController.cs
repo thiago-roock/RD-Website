@@ -14,9 +14,10 @@ using System.Web.Mvc;
 
 namespace RdPodcastingWeb.Controllers
 {
-    [OutputCache(CacheProfile = "CacheLong")]
+ 
     public class HomeController : Controller
     {
+        [OutputCache(CacheProfile = "CacheLong")]
         public ActionResult Index()
         {
             return View();
@@ -63,17 +64,29 @@ namespace RdPodcastingWeb.Controllers
             }
             DataCovid19 covidData;
             int subtrair = 0;
+            int diaLoop = 0;
+            bool mesanterior = false;
             do
             {
-                int diaLoop = string.IsNullOrEmpty(_dia) ? 0 : int.Parse(_dia) - subtrair;
+                if (!mesanterior)
+                    diaLoop = string.IsNullOrEmpty(_dia) ? 0 : int.Parse(_dia) - subtrair;
 
-                covidData = await ConstruirObjetoDeHoje(diaLoop.ToString(), _mes, _ano);
+                covidData = Task.Run(() => ConstruirObjetoDeHoje(AdicionarZero(diaLoop.ToString()), _mes, _ano)).Result;
                 subtrair += 1;
+
+                if (diaLoop == 0)
+                {
+                    _mes = AdicionarZero((int.Parse(_mes) - 1).ToString());
+                    diaLoop = DateTime.DaysInMonth(int.Parse(_ano), int.Parse(_mes));
+                    mesanterior = true;
+                }
+                else if (covidData.Last_Update != null)
+                    break;
             } while (covidData.Last_Update == null);
-           
+
 
             covidData.Last_Update = Convert.ToDateTime(covidData.Last_Update).ToString("D",
-                CultureInfo.CreateSpecificCulture("pt-BR"));
+            CultureInfo.CreateSpecificCulture("pt-BR"));
                       
             ViewBag.CovidData = covidData;
 
@@ -246,7 +259,12 @@ namespace RdPodcastingWeb.Controllers
                 _ano = ano.ToString();
                 for (int mes = 1; mes <= DateTime.Now.Month; mes++)
                 {
-                    var quantidadeDeDias = DateTime.Now.Day == 1 ? DateTime.Now.Day : DateTime.Now.Day - 1;
+                    var quantidadeDeDias = 0;
+                    if (DateTime.Now.Hour >= 21) 
+                        quantidadeDeDias = mes == DateTime.Now.Month? DateTime.Now.Day:DateTime.DaysInMonth(ano, mes);
+                    else
+                        quantidadeDeDias = mes == DateTime.Now.Month ? DateTime.Now.Day - 1 : DateTime.DaysInMonth(ano, mes);
+
                     _mes = AdicionarZero(mes.ToString());
                     string MesNome = ReplacePorNomeDoMes(mes);
 
@@ -358,7 +376,7 @@ namespace RdPodcastingWeb.Controllers
         }
         public string AdicionarZero(string numero)
         {
-            if (int.Parse(numero) < 9)
+            if (int.Parse(numero) <= 9)
                 numero = "0" + numero;
 
             return numero;

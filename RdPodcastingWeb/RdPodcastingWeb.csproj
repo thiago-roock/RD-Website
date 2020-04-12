@@ -237,6 +237,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -255,6 +256,7 @@
     <Content Include="Content\episodios.css" />
     <Content Include="Content\episodios_responsive.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\login.css" />
     <Content Include="Content\main_styles.css" />
     <Content Include="Content\responsive.css" />
     <Content Include="favicon.ico" />
@@ -272,6 +274,21 @@
     <Content Include="files\03-25-2020.csv" />
     <Content Include="files\03-26-2020.csv" />
     <Content Include="files\03-27-2020.csv" />
+    <Content Include="files\03-28-2020.csv" />
+    <Content Include="files\03-29-2020.csv" />
+    <Content Include="files\03-30-2020.csv" />
+    <Content Include="files\03-31-2020.csv" />
+    <Content Include="files\04-01-2020.csv" />
+    <Content Include="files\04-02-2020.csv" />
+    <Content Include="files\04-03-2020.csv" />
+    <Content Include="files\04-04-2020.csv" />
+    <Content Include="files\04-05-2020.csv" />
+    <Content Include="files\04-06-2020.csv" />
+    <Content Include="files\04-07-2020.csv" />
+    <Content Include="files\04-08-2020.csv" />
+    <Content Include="files\04-09-2020.csv" />
+    <Content Include="files\04-10-2020.csv" />
+    <Content Include="files\04-11-2020.csv" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\animation.gsap.min.js" />
     <Content Include="Imagens\about.jpg" />
@@ -306,6 +323,7 @@
     <Content Include="Imagens\guest_1.jpg" />
     <Content Include="Imagens\guest_2.jpg" />
     <Content Include="Imagens\guest_3.jpg" />
+    <Content Include="Imagens\login.jpg" />
     <Content Include="Imagens\heart.svg" />
     <Content Include="Imagens\index.jpg" />
     <Content Include="Imagens\laner.jpg" />
@@ -381,6 +399,7 @@
     <Content Include="Views\Home\Episodios.cshtml" />
     <Content Include="Views\Home\Contato.cshtml" />
     <Content Include="Views\Home\Covid19.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
