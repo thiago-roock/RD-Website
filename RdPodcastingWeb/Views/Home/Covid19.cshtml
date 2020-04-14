@@ -1,0 +1,259 @@
+﻿
+@{
+    ViewBag.Title = "Covid19";
+    Layout = null;
+}
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <title>@ViewBag.Title</title>
+    <meta name="description" content="Dashboard sobre os infectados do coronavírus no Brasil">
+    <meta name="keywords" content="Covid19,covid-19,coronavirus,coronavírus,quarentena,pandemia,fiqueemcasa">
+    <meta name="author" content="Thiago de Melo Lima">
+    <link rel="icon" type="image/x-icon" href="~/Imagens/banner04.png" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="~/Content/Covid.css" rel="preload" media="print" />
+    <link href="https://stackpath.bootstrapcdn.com/" rel="preconnect">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container" id="MinhaCaixa">
+        <div class="row" id="topo">
+            <h1 class="text-center text-monospace" id="topoTitulo">Progresso do <b class="font-weight-bolder text-danger">CORONAVÍRUS</b> no <span class="text-success">Brasil</span></h1>
+            <div class="col-sm">
+                @if (ViewBag.CovidData != null)
+                {
+                    <div class="table-responsive-sm">
+                        <table class="table table-dark text-center">
+                            <caption data-toggle="tooltip" data-placement="right" data-html="true" title="<em>Atualizado conforme os </em> <u>dados</u> <b>oficiais</b>">
+                                Última atualização: @ViewBag.CovidData.Last_Update
+                            </caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Casos confirmados</th>
+                                    <th scope="col">Infectados em tratamento</th>
+                                    <th scope="col">Mortos</th>
+                                    <th scope="col">Infectados curados</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td data-toggle="tooltip" data-placement="right" data-html="true" title="<em>Cada pessoa infectada tem </em> <u>estimativa</u> de infectar <b>de 1 à 3 pessoas</b>, estamos falando em um total de
+                                        @{
+
+                                          var resultado = int.Parse(ViewBag.CovidData.Confirmed) * 3;
+                                            @resultado.ToString();
+                                        } casos, se as pessoas não ficarem em quarentena.">
+                                        @ViewBag.CovidData.Confirmed
+                                    </td>
+                                    <td data-toggle="tooltip" data-placement="left" data-html="true" title="<em>Às pessoas costumam ficar </em> <u>doentes</u> em um periodo de <b>14 à 21 dias</b>, estamos falando de gente se recuperando ainda em
+                                        @{
+
+                                            var qtdeDeDias = DateTime.Now.AddDays(21).ToString("dd.MM.yyyy");
+                                            @qtdeDeDias.ToString();
+                                        }, então por favor, fique em casa de quarentena!">
+
+                                        @ViewBag.CovidData.Active
+                                    </td>
+                                    <td data-toggle="tooltip" data-placement="right" data-html="true" title="<em>Os casos graves de coronavírus</em> acontecem geralmente em <u>idosos, diabéticos e hipertensos.</u> Pessoas com doenças <b>cardiovasculares e pulmonares</b> também fazem parte do grupo de risco idependente da idade."> @ViewBag.CovidData.Deaths</td>
+                                    <td data-toggle="tooltip" data-placement="left" data-html="true" title="<em>O Coronavírus (COVID-19)</em> não é uma gripezinha ou resfriadinho, mas <u>pessoas jovens e pessoas sem o sistema imunológico prejudicado por doenças crônicas</u>, tendem a se recuperar dentro de um período de <b>11 à 14 dias.</b>">@ViewBag.CovidData.Recovered</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                }
+                else
+                {
+                    <h3>Houve algum problema, tente novamente em alguns minutos.</h3>
+                }
+            </div>
+            <div class="col-sm">
+                <div id="donutchart_day"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="GraficoDeMeses"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <footer class="blockquote-footer" id="FimDaPagina">
+                    <blockquote class="blockquote text-justify">
+                        Os dados utilizados nessa <strong>análise</strong> são mantidos e operados, pelo <mark>Centro de Ciência e Engenharia da Universidade Johns Hopkins (JHU CSSE)</mark>. Além disso, com o apoio da <u>ESRI Living Atlas Team</u> e do <u>Laboratório de Física Aplicada da <a data-toggle="tooltip" data-placement="top" title="Clique aqui para conhecer o estudo" target="_blank" rel="noreferrer" href="https://systems.jhu.edu/research/public-health/ncov/">Johns Hopkins University</a> (JHU APL)</u>.
+                    </blockquote>
+                    <p class="text-center"><strong>Copyright © @DateTime.Now.Year - <a data-toggle="tooltip" data-placement="top" title="Clique aqui para conhecer o projeto" href="@Url.Action("Index","Home")">Remédios Demais Podcast</a>.</strong> All rights reserved.</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <script async src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script async src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+
+<script>
+    function preconnectTo(url) {
+        var hint = document.createElement("link");
+        hint.rel = "preconnect";
+        hint.href = url;
+        document.head.appendChild(hint);
+    }
+    document.onreadystatechange = function () {
+        if (document.readyState == "loading")
+        {
+            console.log(document.readyState + ": agora estamos carregando o html5!");
+
+        }
+        if (document.readyState == "interactive")
+        {
+            console.log(document.readyState+": agora estamos carregando css3, js e boostrap!");
+
+        } else if (document.readyState === "complete") {
+            console.log(document.readyState + ": agora a página está quase lá, falta os gráficos!");
+        
+        }
+    }
+</script>
+<script async>
+    jQuery(document).ready(function () {
+        google.charts.load('current', { packages: ['corechart', 'line'] });
+        google.charts.setOnLoadCallback(drawGraph);
+        google.charts.setOnLoadCallback(drawChartDonout);
+      
+        console.log();
+        console.log("Iniciando carregamento dos gráficos!");
+
+            function drawChartDonout() {
+                var data = google.visualization.arrayToDataTable([
+                    ['Legendas', 'Casos'],
+                    ['Infectados em tratamento', @ViewBag.CovidMesAtual.InfectadosEmTratamento],
+                    ['Mortos', @ViewBag.CovidMesAtual.Mortos],
+                    ['Infectados curados', @ViewBag.CovidMesAtual.InfectadosCurados]
+                ]);
+
+                var options = {
+                    title: 'Casos somente nesse mês',
+                    pieHole: 0.4,
+                    width: '50%',
+                    height: 200,
+                    legend: { position: 'right' }
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('donutchart_day'));
+                chart.draw(data, options);
+                console.log("gráficos 1: Carregado!");
+            }
+
+        });
+</script>
+
+<script async>
+  
+    jQuery.get("/Home/GetDataGraficoDias/",
+        function (ListaCovidData, status) {
+
+            if (status == "success") {
+                console.log("iniciando gráficos de linha!");
+                drawGraph(ListaCovidData);
+            }
+            Carregartooltips();
+        });
+
+    function drawGraph(ListaCovidData) {
+        if (ListaCovidData == null) return
+        var elementIdMensal = 'GraficoDeMeses';
+        // Set chart options
+        var optionsMensal = {
+            chart: {
+                title: 'Progresso por meses, sobre os casos de COVID-19',
+                subtitle: 'Somente no Brasil',
+               
+            },
+            width: 1000,
+            height: 300,
+            series: {
+                // Gives each series an axis name that matches the Y-axis below.
+                0: { axis: 'linha01' },
+                1: { axis: 'linha02' },
+                2: { axis: 'linha03' }
+            },
+            axes: {
+                // Adds labels to each axis; they don't have to match the axis names.
+                y: {
+                    linha01: { label: 'Quantidade (Confirmados)' },
+                    linha02: { label: 'Quantidade (Mortos)' },
+                    linha03: { label: 'Quantidade (Curados)' },
+                },
+                h: {
+                    curveType: 'function',
+                    legend: { position: 'bottom' }
+                },
+                x: {
+                    0: { side: 'bottom' }
+                }
+                
+            }
+
+        };
+
+        var dataMensal = new google.visualization.DataTable();
+
+        dataMensal.addColumn('string', 'Meses');
+        dataMensal.addColumn('number', 'Casos confirmados');
+        dataMensal.addColumn('number', 'Mortos');
+        dataMensal.addColumn('number', 'Infectados curados');
+
+        for (var i = 0; i < ListaCovidData.ListaMes.length; i++)
+        {
+            dataMensal.addRow([ListaCovidData.ListaMes[i].Mes,
+            ListaCovidData.ListaMes[i].CasosConfirmados,
+            ListaCovidData.ListaMes[i].Mortos,
+            ListaCovidData.ListaMes[i].InfectadosCurados]);
+        }
+
+        var viewMensal = new google.visualization.DataView(dataMensal);
+        viewMensal.setColumns([0, 1,
+            {
+                calc: "stringify",
+                sourceColumn: 1,
+                type: "string",
+                role: "annotation"
+            },
+            2,
+            {
+                calc: "stringify",
+                sourceColumn: 2,
+                type: "string",
+                role: "annotation"
+            }
+        ]);
+
+        var chartMensal = new google.charts.Line(document.getElementById(elementIdMensal));
+
+        chartMensal.draw(dataMensal, google.charts.Line.convertOptions(optionsMensal));
+        console.log("gráficos 2: Carregado!");
+        console.log();
+        console.log("Finalizando carregamento dos gráficos!");
+        console.log();
+        console.log("Página totalmente carregada!");
+    }
+
+    function Carregartooltips()
+    {
+        console.log("ativando tooltips");
+        jQuery('[data-toggle="tooltip"]').tooltip();
+        console.log("tooltips ativados");
+    }
+</script>
