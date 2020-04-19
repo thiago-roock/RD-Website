@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Covid19";
     Layout = null;
 }
@@ -13,89 +12,218 @@
     <link rel="icon" type="image/x-icon" href="~/Imagens/banner04.png" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="~/Content/Covid.css" rel="preload" media="print" />
     <link href="https://stackpath.bootstrapcdn.com/" rel="preconnect">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="~/Content/Covid.css" rel="stylesheet" />
+    @*rel="preload" media="print"*@
+
 </head>
 <body>
+    <header>
+        <nav class="site-header fixed-top py-1" id="navbar-example2">
+            <div class="container d-flex flex-column flex-md-row justify-content-between">
+                <a class="py-2" href="@Url.Action("Index","Home")">
+                    <img src="~/Imagens/banner01.png" width="30" height="30" alt="" class="rounded-circle">
+                </a>
+                <a class="py-2 d-none d-md-inline-block" href="#one">Home</a>
+                <a class="py-2 d-none d-md-inline-block" href="#graphQL">Gráficos</a>
+                <a class="py-2 d-none d-md-inline-block invisible" href="#two">Sem fake news</a>
+                <a class="py-2 d-none d-md-inline-block invisible" href="#tree">Serviços Gratuitos</a>
+            </div>
+        </nav>
+    </header>
+
     <div class="container" id="MinhaCaixa">
         <div class="row" id="topo">
-            <h1 class="text-center text-monospace" id="topoTitulo">Progresso do <b class="font-weight-bolder text-danger">CORONAVÍRUS</b> no <span class="text-success">Brasil</span></h1>
-            <div class="col-sm">
-                @if (ViewBag.CovidData != null)
-                {
-                    <div class="table-responsive-sm">
-                        <table class="table table-dark text-center">
-                            <caption data-toggle="tooltip" data-placement="right" data-html="true" title="<em>Atualizado conforme os </em> <u>dados</u> <b>oficiais</b>">
-                                Última atualização: @ViewBag.CovidData.Last_Update
-                            </caption>
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Casos confirmados</th>
-                                    <th scope="col">Infectados em tratamento</th>
-                                    <th scope="col">Mortos</th>
-                                    <th scope="col">Infectados curados</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td data-toggle="tooltip" data-placement="right" data-html="true" title="<em>Cada pessoa infectada tem </em> <u>estimativa</u> de infectar <b>de 1 à 3 pessoas</b>, estamos falando em um total de
+            <div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
+                <h4 id="one" class="invisible"></h4>
+                <div class="col-md-12">
+                    <h1 class="text-center text-monospace" id="topoTitulo">Progresso do <b class="font-weight-bolder text-danger">CORONAVÍRUS</b> no <span class="text-success">Brasil</span></h1>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+                            <div class="col-sm">
+                                @if (ViewBag.CovidData != null)
+                                {
+                                    <div class="table-responsive-sm">
+                                        <table class="table table-dark text-center">
+                                            <caption data-toggle="tooltip" data-placement="right" data-html="true" title="<em>Atualizado conforme os </em> <u>dados</u> <b>oficiais</b>">
+                                                Última atualização: @ViewBag.CovidData.Last_Update
+                                            </caption>
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Confirmadas</th>
+                                                    <th scope="col">Em Tratamento</th>
+                                                    <th scope="col">Mortas</th>
+                                                    <th scope="col">Curadas</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">
+                                                        Pessoas <svg class="bi bi-arrow-right" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" d="M10.146 4.646a.5.5 0 01.708 0l3 3a.5.5 0 010 .708l-3 3a.5.5 0 01-.708-.708L12.793 8l-2.647-2.646a.5.5 0 010-.708z" clip-rule="evenodd" />
+                                                            <path fill-rule="evenodd" d="M2 8a.5.5 0 01.5-.5H13a.5.5 0 010 1H2.5A.5.5 0 012 8z" clip-rule="evenodd" />
+                                                        </svg>
+                                                    </th>
+                                                    <td data-toggle="tooltip" data-placement="right" data-html="true" title="<em>Cada pessoa infectada tem </em> <u>estimativa</u> de infectar <b>de 1 à 3 pessoas</b>, estamos falando em um total de
                                         @{
 
                                           var resultado = int.Parse(ViewBag.CovidData.Confirmed) * 3;
                                             @resultado.ToString();
                                         } casos, se as pessoas não ficarem em quarentena.">
-                                        @ViewBag.CovidData.Confirmed
-                                    </td>
-                                    <td data-toggle="tooltip" data-placement="left" data-html="true" title="<em>Às pessoas costumam ficar </em> <u>doentes</u> em um periodo de <b>14 à 21 dias</b>, estamos falando de gente se recuperando ainda em
+                                                        @string.Format("{0:0,0}", int.Parse(@ViewBag.CovidData.Confirmed))
+                                                        <svg class="bi bi-exclamation-square" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" d="M14 1H2a1 1 0 00-1 1v12a1 1 0 001 1h12a1 1 0 001-1V2a1 1 0 00-1-1zM2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2z" clip-rule="evenodd" />
+                                                            <path d="M7.002 11a1 1 0 112 0 1 1 0 01-2 0zM7.1 4.995a.905.905 0 111.8 0l-.35 3.507a.552.552 0 01-1.1 0L7.1 4.995z" />
+                                                        </svg>
+
+                                                    </td>
+                                                    <td data-toggle="tooltip" data-placement="left" data-html="true" title="<em>Às pessoas costumam ficar </em> <u>doentes</u> em um periodo de <b>14 à 21 dias</b>, estamos falando de gente se recuperando ainda em
                                         @{
 
                                             var qtdeDeDias = DateTime.Now.AddDays(21).ToString("dd.MM.yyyy");
                                             @qtdeDeDias.ToString();
                                         }, então por favor, fique em casa de quarentena!">
 
-                                        @ViewBag.CovidData.Active
-                                    </td>
-                                    <td data-toggle="tooltip" data-placement="right" data-html="true" title="<em>Os casos graves de coronavírus</em> acontecem geralmente em <u>idosos, diabéticos e hipertensos.</u> Pessoas com doenças <b>cardiovasculares e pulmonares</b> também fazem parte do grupo de risco idependente da idade."> @ViewBag.CovidData.Deaths</td>
-                                    <td data-toggle="tooltip" data-placement="left" data-html="true" title="<em>O Coronavírus (COVID-19)</em> não é uma gripezinha ou resfriadinho, mas <u>pessoas jovens e pessoas sem o sistema imunológico prejudicado por doenças crônicas</u>, tendem a se recuperar dentro de um período de <b>11 à 14 dias.</b>">@ViewBag.CovidData.Recovered</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                                                        @string.Format("{0:0,0}", int.Parse(@ViewBag.CovidData.Active))
+                                                        <svg class="bi bi-heart-half" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" d="M8 1.314C3.562-3.248-7.534 4.735 8 15V1.314z" clip-rule="evenodd" />
+                                                            <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 01.176-.17C12.72-3.042 23.333 4.867 8 15z" clip-rule="evenodd" />
+                                                        </svg>
+                                                    </td>
+                                                    <td data-toggle="tooltip" data-placement="right" data-html="true" title="<em>Os casos graves de coronavírus</em> acontecem geralmente em <u>idosos, diabéticos e hipertensos.</u> Pessoas com doenças <b>cardiovasculares e pulmonares</b> também fazem parte do grupo de risco idependente da idade.">
+                                                        @string.Format("{0:0,0}", int.Parse(@ViewBag.CovidData.Deaths))
+                                                        <svg class="bi bi-heart" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 01.176-.17C12.72-3.042 23.333 4.867 8 15z" clip-rule="evenodd" />
+                                                        </svg>
+                                                    </td>
+                                                    <td data-toggle="tooltip" data-placement="left" data-html="true" title="<em>O Coronavírus (COVID-19)</em> não é uma gripezinha ou resfriadinho, mas <u>pessoas jovens e pessoas sem o sistema imunológico prejudicado por doenças crônicas</u>, tendem a se recuperar dentro de um período de <b>11 à 14 dias.</b>">
+                                                        @string.Format("{0:0,0}", int.Parse(@ViewBag.CovidData.Recovered))
+                                                        <svg class="bi bi-heart-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" clip-rule="evenodd" />
+                                                        </svg>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
 
-                }
-                else
-                {
-                    <h3>Houve algum problema, tente novamente em alguns minutos.</h3>
-                }
-            </div>
-            <div class="col-sm">
-                <div id="donutchart_day"></div>
+                                }
+                                else
+                                {
+                                    <h3>Houve algum problema, tente novamente em alguns minutos.</h3>
+                                }
+                            </div>
+
+                            <p class="text-justify">
+                                <h1>80% dos casos são leves</h1>
+                                <blockquote>Com base em todos os 72.314 casos de COVID-19 confirmados, suspeitos e assintomáticos na China a partir de 11 de fevereiro, um artigo do CCDC chinês divulgado em 17 de fevereiro e publicado no <a href="http://weekly.chinacdc.cn/en/article/id/e53946e2-c6c4-41e9-9a9b-fea8db1a8f51">Chinese Journal of Epidemiology</a> descobriu que:</blockquote>
+
+                                <ul class="list">
+                                    <li>
+                                        <strong class="text-success">80,9% das infecções são leves</strong> (com sintomas semelhantes aos da gripe) e podem se recuperar em casa .
+                                    </li>
+                                    <li>
+                                        <strong class="text-primary">13,8% são graves</strong>, desenvolvendo doenças graves, incluindo pneumonia e falta de ar.
+                                    </li>
+                                    <li>
+                                        <strong class="text-danger">4,7% como crítico</strong> e pode incluir: insuficiência respiratória, choque séptico e falência de múltiplos órgãos.
+                                    </li>
+                                    <li>
+                                        <mark>em cerca de 2% dos casos relatados, o vírus é fatal.</mark>
+                                    </li>
+                                    <li>
+                                        O risco de morte aumenta quanto mais   <button class="btn btn-dark" type="button" data-toggle="collapse" data-target=".multi-collapse2" aria-expanded="false" aria-controls="multiCollapseExample3 multiCollapseExample4">
+                                            velho
+                                            <svg class="bi bi-arrows-fullscreen" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M1.464 10.536a.5.5 0 01.5.5v3h3a.5.5 0 010 1h-3.5a.5.5 0 01-.5-.5v-3.5a.5.5 0 01.5-.5z" clip-rule="evenodd" />
+                                                <path fill-rule="evenodd" d="M5.964 10a.5.5 0 010 .707l-4.146 4.147a.5.5 0 01-.707-.708L5.257 10a.5.5 0 01.707 0zm8.854-8.854a.5.5 0 010 .708L10.672 6a.5.5 0 01-.708-.707l4.147-4.147a.5.5 0 01.707 0z" clip-rule="evenodd" />
+                                                <path fill-rule="evenodd" d="M10.5 1.5A.5.5 0 0111 1h3.5a.5.5 0 01.5.5V5a.5.5 0 01-1 0V2h-3a.5.5 0 01-.5-.5zm4 9a.5.5 0 00-.5.5v3h-3a.5.5 0 000 1h3.5a.5.5 0 00.5-.5V11a.5.5 0 00-.5-.5z" clip-rule="evenodd" />
+                                                <path fill-rule="evenodd" d="M10 9.964a.5.5 0 000 .708l4.146 4.146a.5.5 0 00.708-.707l-4.147-4.147a.5.5 0 00-.707 0zM1.182 1.146a.5.5 0 000 .708L5.328 6a.5.5 0 00.708-.707L1.889 1.146a.5.5 0 00-.707 0z" clip-rule="evenodd" />
+                                                <path fill-rule="evenodd" d="M5.5 1.5A.5.5 0 005 1H1.5a.5.5 0 00-.5.5V5a.5.5 0 001 0V2h3a.5.5 0 00.5-.5z" clip-rule="evenodd" />
+                                            </svg>
+                                        </button> você é.
+                                    </li>
+                                    <li>
+                                        Condições médicas pré-existentes (comorbidades): <button class="btn btn-dark" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">
+                                            Doença cardiovascular, Diabetes, Doença respiratória crônica, Hipertensão e Câncer
+                                            <svg class="bi bi-arrows-fullscreen" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M1.464 10.536a.5.5 0 01.5.5v3h3a.5.5 0 010 1h-3.5a.5.5 0 01-.5-.5v-3.5a.5.5 0 01.5-.5z" clip-rule="evenodd" />
+                                                <path fill-rule="evenodd" d="M5.964 10a.5.5 0 010 .707l-4.146 4.147a.5.5 0 01-.707-.708L5.257 10a.5.5 0 01.707 0zm8.854-8.854a.5.5 0 010 .708L10.672 6a.5.5 0 01-.708-.707l4.147-4.147a.5.5 0 01.707 0z" clip-rule="evenodd" />
+                                                <path fill-rule="evenodd" d="M10.5 1.5A.5.5 0 0111 1h3.5a.5.5 0 01.5.5V5a.5.5 0 01-1 0V2h-3a.5.5 0 01-.5-.5zm4 9a.5.5 0 00-.5.5v3h-3a.5.5 0 000 1h3.5a.5.5 0 00.5-.5V11a.5.5 0 00-.5-.5z" clip-rule="evenodd" />
+                                                <path fill-rule="evenodd" d="M10 9.964a.5.5 0 000 .708l4.146 4.146a.5.5 0 00.708-.707l-4.147-4.147a.5.5 0 00-.707 0zM1.182 1.146a.5.5 0 000 .708L5.328 6a.5.5 0 00.708-.707L1.889 1.146a.5.5 0 00-.707 0z" clip-rule="evenodd" />
+                                                <path fill-rule="evenodd" d="M5.5 1.5A.5.5 0 005 1H1.5a.5.5 0 00-.5.5V5a.5.5 0 001 0V2h3a.5.5 0 00.5-.5z" clip-rule="evenodd" />
+                                            </svg>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        Relativamente poucos casos são vistos entre <strong>crianças</strong>.
+                                    </li>
+                                    <li>
+                                        <button class="btn btn-dark" type="button" data-toggle="collapse" data-target=".multi-collapse3" aria-expanded="false" aria-controls="multiCollapseExample5 multiCollapseExample6">
+                                            Taxa de mortalidade COVID-19 por sexo
+                                            <svg class="bi bi-arrows-fullscreen" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M1.464 10.536a.5.5 0 01.5.5v3h3a.5.5 0 010 1h-3.5a.5.5 0 01-.5-.5v-3.5a.5.5 0 01.5-.5z" clip-rule="evenodd" />
+                                                <path fill-rule="evenodd" d="M5.964 10a.5.5 0 010 .707l-4.146 4.147a.5.5 0 01-.707-.708L5.257 10a.5.5 0 01.707 0zm8.854-8.854a.5.5 0 010 .708L10.672 6a.5.5 0 01-.708-.707l4.147-4.147a.5.5 0 01.707 0z" clip-rule="evenodd" />
+                                                <path fill-rule="evenodd" d="M10.5 1.5A.5.5 0 0111 1h3.5a.5.5 0 01.5.5V5a.5.5 0 01-1 0V2h-3a.5.5 0 01-.5-.5zm4 9a.5.5 0 00-.5.5v3h-3a.5.5 0 000 1h3.5a.5.5 0 00.5-.5V11a.5.5 0 00-.5-.5z" clip-rule="evenodd" />
+                                                <path fill-rule="evenodd" d="M10 9.964a.5.5 0 000 .708l4.146 4.146a.5.5 0 00.708-.707l-4.147-4.147a.5.5 0 00-.707 0zM1.182 1.146a.5.5 0 000 .708L5.328 6a.5.5 0 00.708-.707L1.889 1.146a.5.5 0 00-.707 0z" clip-rule="evenodd" />
+                                                <path fill-rule="evenodd" d="M5.5 1.5A.5.5 0 005 1H1.5a.5.5 0 00-.5.5V5a.5.5 0 001 0V2h3a.5.5 0 00.5-.5z" clip-rule="evenodd" />
+                                            </svg>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </p>
+                            @{
+                                Html.RenderPartial("_TaxaDeMortesPorDoencaCronicas");
+                                Html.RenderPartial("_TaxaDeMortesPorIdade");
+                                Html.RenderPartial("_TaxaDeMortesPorSexo");
+                            }
+                            <h4 id="graphQL" class="invisible"></h4>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="donutchart_mortos"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div id="donutchart_estados"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div id="donutchart_day"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="GraficoDeMeses"></div>
+                                </div>
+                            </div>
+                            @{
+
+                                Html.RenderPartial("_Rodape");
+                            }
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div id="GraficoDeMeses"></div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <footer class="blockquote-footer" id="FimDaPagina">
-                    <blockquote class="blockquote text-justify">
-                        Os dados utilizados nessa <strong>análise</strong> são mantidos e operados, pelo <mark>Centro de Ciência e Engenharia da Universidade Johns Hopkins (JHU CSSE)</mark>. Além disso, com o apoio da <u>ESRI Living Atlas Team</u> e do <u>Laboratório de Física Aplicada da <a data-toggle="tooltip" data-placement="top" title="Clique aqui para conhecer o estudo" target="_blank" rel="noreferrer" href="https://systems.jhu.edu/research/public-health/ncov/">Johns Hopkins University</a> (JHU APL)</u>.
-                    </blockquote>
-                    <p class="text-center"><strong>Copyright © @DateTime.Now.Year - <a data-toggle="tooltip" data-placement="top" title="Clique aqui para conhecer o projeto" href="@Url.Action("Index","Home")">Remédios Demais Podcast</a>.</strong> All rights reserved.</p>
-                </footer>
-            </div>
-        </div>
-    </div>
+        @*<h4 id="two" class="invisible"></h4>*@
+        @{
+//Html.RenderPartial("_CardsBoletins");
+//Html.RenderPartial("_ListaCursos");
+        }
+        @*<h4 id="tree" class="invisible"></h4>*@
+
+    </div> 
+
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
     <script async src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
-    <script async src="https://www.gstatic.com/charts/loader.js"></script>
+    <script async type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    @*<script async type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>*@
+    <script async type="text/javascript" src="https://www.google.com/jsapi"></script>
 
     <script async src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
@@ -104,34 +232,32 @@
 
 
 <script>
-    function preconnectTo(url) {
-        var hint = document.createElement("link");
-        hint.rel = "preconnect";
-        hint.href = url;
-        document.head.appendChild(hint);
-    }
+
     document.onreadystatechange = function () {
-        if (document.readyState == "loading")
-        {
+        if (document.readyState == "loading") {
             console.log(document.readyState + ": agora estamos carregando o html5!");
 
         }
-        if (document.readyState == "interactive")
-        {
-            console.log(document.readyState+": agora estamos carregando css3, js e boostrap!");
+        if (document.readyState == "interactive") {
+            console.log(document.readyState + ": agora estamos carregando css3, js e boostrap!");
 
         } else if (document.readyState === "complete") {
             console.log(document.readyState + ": agora a página está quase lá, falta os gráficos!");
-        
+
         }
     }
 </script>
 <script async>
     jQuery(document).ready(function () {
-        google.charts.load('current', { packages: ['corechart', 'line'] });
-        google.charts.setOnLoadCallback(drawGraph);
-        google.charts.setOnLoadCallback(drawChartDonout);
-      
+        google.charts.load('current', {
+            callback: function () {
+                drawGraph();
+                drawChartDonout();
+                drawChartDonoutMortos();
+            },
+            packages: ['corechart', 'line', 'bar']
+        });
+
         console.log();
         console.log("Iniciando carregamento dos gráficos!");
 
@@ -145,22 +271,28 @@
 
                 var options = {
                     title: 'Casos somente nesse mês',
-                    pieHole: 0.4,
-                    width: '50%',
-                    height: 200,
+                    pieHole: 0.1,
+                    width: '100%',
+                    height: 400,
                     legend: { position: 'right' }
                 };
 
                 var chart = new google.visualization.PieChart(document.getElementById('donutchart_day'));
                 chart.draw(data, options);
                 console.log("gráficos 1: Carregado!");
-            }
+        }
+
+        $('.carousel').carousel({
+            interval: 1000,
+            pause: "hover",
+            ride: true
+        })
 
         });
 </script>
 
 <script async>
-  
+
     jQuery.get("/Home/GetDataGraficoDias/",
         function (ListaCovidData, status) {
 
@@ -179,7 +311,7 @@
             chart: {
                 title: 'Progresso por meses, sobre os casos de COVID-19',
                 subtitle: 'Somente no Brasil',
-               
+
             },
             width: 1000,
             height: 300,
@@ -203,7 +335,7 @@
                 x: {
                     0: { side: 'bottom' }
                 }
-                
+
             }
 
         };
@@ -215,8 +347,7 @@
         dataMensal.addColumn('number', 'Mortos');
         dataMensal.addColumn('number', 'Infectados curados');
 
-        for (var i = 0; i < ListaCovidData.ListaMes.length; i++)
-        {
+        for (var i = 0; i < ListaCovidData.ListaMes.length; i++) {
             dataMensal.addRow([ListaCovidData.ListaMes[i].Mes,
             ListaCovidData.ListaMes[i].CasosConfirmados,
             ListaCovidData.ListaMes[i].Mortos,
@@ -250,10 +381,117 @@
         console.log("Página totalmente carregada!");
     }
 
-    function Carregartooltips()
-    {
+    function Carregartooltips() {
         console.log("ativando tooltips");
         jQuery('[data-toggle="tooltip"]').tooltip();
         console.log("tooltips ativados");
+    }
+</script>
+
+<script>
+    jQuery.get("/Home/GetDataGraficoCasosEstados/",
+        function (ListaCovidData, status) {
+
+            if (status == "success") {
+                console.log("iniciando gráficos de estados!");
+                drawChartDonoutEstados(ListaCovidData);
+            }
+            
+        });
+
+    function drawChartDonoutEstados(ListaCovidData) {
+
+        if (ListaCovidData == null) return
+        var elementId = 'donutchart_estados';
+
+        var dataEstados = new google.visualization.DataTable();
+
+        dataEstados.addColumn('string', 'Estado');
+        dataEstados.addColumn('number', 'Casos');
+        console.log("Lista count: " + ListaCovidData.length);
+
+        for (var i = 0; i < ListaCovidData.length; i++)
+        {
+            if (ListaCovidData[i].Estado != null && ListaCovidData[i].Casos != null)
+            {
+                var myVal = parseFloat($.trim(ListaCovidData[i].Casos));
+                console.log([$.trim(ListaCovidData[i].Estado), { v: myVal, f: myVal.toFixed() }]);
+                dataEstados.addRow([$.trim(ListaCovidData[i].Estado), { v: myVal, f: myVal.toFixed() }]);
+            }
+        }
+
+        var options = {
+            title: 'Infectados por estados',
+            pieHole: 0.2,
+            width: '100%',
+            height: 400,
+            legend: { position: 'right'},
+            pieSliceText: 'percentage',
+            slices: {
+                4: { offset: 0.2 },
+                12: { offset: 0.3 },
+                14: { offset: 0.4 },
+                15: { offset: 0.5 },
+            }
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById(elementId));
+        chart.draw(dataEstados, options);
+        console.log("gráfico de estados carregado!");
+    }
+</script>
+
+<script>
+    jQuery.get("/Home/GetDataGraficoMortosEstados/",
+        function (ListaCovidData, status) {
+
+            if (status == "success") {
+                console.log("iniciando gráficos de mortos!");
+                drawChartDonoutMortos(ListaCovidData);
+            }
+
+        });
+
+    function drawChartDonoutMortos(ListaCovidData) {
+
+        if (ListaCovidData == null) return
+        var elementId = 'donutchart_mortos';
+
+        var dataMortos = new google.visualization.DataTable();
+
+        dataMortos.addColumn('string', 'Estados');
+        dataMortos.addColumn('number', 'Mortos');
+        console.log("Lista count: " + ListaCovidData.length);
+
+        for (var i = 0; i < ListaCovidData.length; i++) {
+            if (ListaCovidData[i].Estado != null && ListaCovidData[i].Mortos != null) {
+                var myVal = parseFloat($.trim(ListaCovidData[i].Mortos));
+                console.log([$.trim(ListaCovidData[i].Estado), { v: myVal, f: myVal.toFixed() }]);
+                dataMortos.addRow([$.trim(ListaCovidData[i].Estado), { v: myVal, f: myVal.toFixed() }]);
+            }
+        }
+
+        var options = {
+            width: 1000,
+            height:300,
+            chart: {
+                title: 'Mortos',
+                subtitle: 'por estados'
+            },
+            series: {
+                0: { axis: 'distance' }, // Bind series 0 to an axis named 'distance'.
+                1: { axis: 'brightness' } // Bind series 1 to an axis named 'brightness'.
+            },
+            axes: {
+                y: {
+                    distance: { label: 'Quantidade' }, // Left y-axis.
+                    brightness: { side: 'right', label: 'apparent magnitude' } // Right y-axis.
+                }
+            }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById(elementId));
+        chart.draw(dataMortos, google.charts.Bar.convertOptions(options));
+        console.log("gráfico de mortos carregado!");
     }
 </script>

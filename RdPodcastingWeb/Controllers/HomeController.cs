@@ -1,4 +1,6 @@
 ﻿using CsvHelper;
+using DocumentFormat.OpenXml.ExtendedProperties;
+using Newtonsoft.Json;
 using RdPodcastingWeb.Model;
 using System;
 using System.Collections.Generic;
@@ -46,6 +48,10 @@ namespace RdPodcastingWeb.Controllers
         [Route("{dataBusca:string}")]
         public async Task<ActionResult> Covid19(string dataBusca)
         {
+          
+
+
+
             string _dia = null;
             string _mes = null;
             string _ano = null;
@@ -241,6 +247,85 @@ namespace RdPodcastingWeb.Controllers
         {
             var lista = await ConstruirListaParaGraficos();
             return Json(lista,JsonRequestBehavior.AllowGet);
+        }
+
+        public async Task<JsonResult> GetDataGraficoCasosEstados()
+        {
+
+            var client = new HttpClient();
+            string queryString = "https://brasil.io/api/dataset/covid19/caso/data/";
+            List<ResultLine> listaEstadosFull = null;
+            HttpResponseMessage response;
+            try
+            {
+                response = await client.GetAsync(queryString);
+                if (response.IsSuccessStatusCode)
+                {
+                    var resultado = response.Content.ReadAsStringAsync().Result;
+                    EstadosCovid dataJ = JsonConvert.DeserializeObject<EstadosCovid>(resultado.ToString());
+                    
+                    listaEstadosFull = dataJ.results
+                    .GroupBy(l => l.state)
+                    .Select(cl => new ResultLine
+                    {
+                        Estado = cl.First().state,
+                        Casos = cl.Sum(a => a.confirmed),
+                        //Mortos = cl.Sum(b => b.deaths).ToString(),
+                    }).ToList();
+
+                    //foreach (var estado in result)
+                    //{
+
+                    //}
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return Json(listaEstadosFull, JsonRequestBehavior.AllowGet);
+        }
+
+        public async Task<JsonResult> GetDataGraficoMortosEstados()
+        {
+
+            var client = new HttpClient();
+            string queryString = "https://brasil.io/api/dataset/covid19/caso/data/";
+            List<ResultLine2> listaEstadosFull = null;
+            HttpResponseMessage response;
+            try
+            {
+                response = await client.GetAsync(queryString);
+                if (response.IsSuccessStatusCode)
+                {
+                    var resultado = response.Content.ReadAsStringAsync().Result;
+                    EstadosCovid dataJ = JsonConvert.DeserializeObject<EstadosCovid>(resultado.ToString());
+
+                    listaEstadosFull = dataJ.results
+                    .GroupBy(l => l.state)
+                    .Select(cl => new ResultLine2
+                    {
+                        Estado = cl.First().state,
+                        Mortos = cl.Sum(b => b.deaths).ToString(),
+                    }).ToList();
+
+                    //foreach (var estado in result)
+                    //{
+
+                    //}
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return Json(listaEstadosFull, JsonRequestBehavior.AllowGet);
         }
         public async Task<Covid19Data> ConstruirListaParaGraficos()
         {
