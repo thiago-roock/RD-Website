@@ -182,21 +182,56 @@
                             }
                             <h4 id="graphQL" class="invisible"></h4>
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-12 text-center">
+                                    <div class="spinner-grow" id="load_mortos_estados" style="width: 3rem; height: 3rem;" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
                                     <div id="donutchart_mortos"></div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-6 text-center">
+                                    <div class="spinner-grow" id="load_casos_estados" style="width: 3rem; height: 3rem;" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
                                     <div id="donutchart_estados"></div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6 text-center">
+                                    <div class="spinner-grow" id="load_grafico_dias"style="width: 3rem; height: 3rem;" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
                                     <div id="donutchart_day"></div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-12 text-center">
+                                    <div class="spinner-grow" id="load_grafico_meses" style="width: 3rem; height: 3rem;" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
                                     <div id="GraficoDeMeses"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class='tableauPlaceholder' id='viz1586263510113' style='position: relative'>
+                                        <noscript>
+                                            <a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;MK&#47;MKTScoredeisolamentosocial&#47;VisoGeral&#47;1_rss.png' style='border: none' /></a>
+                                        </noscript>
+                                        <object class='tableauViz' style='display:none;'>
+                                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                                            <param name='embed_code_version' value='3' />
+                                            <param name='site_root' value='' />
+                                            <param name='name' value='MKTScoredeisolamentosocial&#47;VisoGeral' />
+                                            <param name='tabs' value='yes' />
+                                            <param name='toolbar' value='yes' />
+                                            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;MK&#47;MKTScoredeisolamentosocial&#47;VisoGeral&#47;1.png' />
+                                            <param name='animate_transition' value='yes' />
+                                            <param name='display_static_image' value='yes' />
+                                            <param name='display_spinner' value='yes' />
+                                            <param name='display_overlay' value='yes' />
+                                            <param name='display_count' value='yes' />
+                                        </object>
+                                    </div>
                                 </div>
                             </div>
                             @{
@@ -222,7 +257,6 @@
     <script async src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
     <script async type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    @*<script async type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>*@
     <script async type="text/javascript" src="https://www.google.com/jsapi"></script>
 
     <script async src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
@@ -248,12 +282,14 @@
     }
 </script>
 <script async>
+
     jQuery(document).ready(function () {
         google.charts.load('current', {
             callback: function () {
                 drawGraph();
                 drawChartDonout();
                 drawChartDonoutMortos();
+                drawChartDonoutEstados();
             },
             packages: ['corechart', 'line', 'bar']
         });
@@ -261,7 +297,110 @@
         console.log();
         console.log("Iniciando carregamento dos gráficos!");
 
-            function drawChartDonout() {
+        jQuery.get("/Home/GetDataGraficoCasosEstados/",
+            function (ListaCovidData, status) {
+
+                if (status == "success") {
+                    console.log("iniciando gráficos de estados!");
+                    drawChartDonoutEstados(ListaCovidData);
+                }
+
+            });
+
+        jQuery.get("/Home/GetDataGraficoMortosEstados/",
+            function (ListaCovidData, status) {
+
+                if (status == "success") {
+                    console.log("iniciando gráficos de mortos!");
+                    drawChartDonoutMortos(ListaCovidData);
+                }
+            });
+
+        function drawChartDonoutEstados(ListaCovidData) {
+
+            if (ListaCovidData == null) return
+            var elementId = 'donutchart_estados';
+
+            var dataEstados = new google.visualization.DataTable();
+
+            dataEstados.addColumn('string', 'Estado');
+            dataEstados.addColumn('number', 'Casos');
+            console.log("Lista count: " + ListaCovidData.length);
+
+            for (var i = 0; i < ListaCovidData.length; i++) {
+                if (ListaCovidData[i].Estado != null && ListaCovidData[i].Casos != null) {
+                    var myVal = parseFloat($.trim(ListaCovidData[i].Casos));
+                    console.log([$.trim(ListaCovidData[i].Estado), { v: myVal, f: myVal.toFixed() }]);
+                    dataEstados.addRow([$.trim(ListaCovidData[i].Estado), { v: myVal, f: myVal.toFixed() }]);
+                }
+            }
+
+            var options = {
+                title: 'Infectados por estados',
+                pieHole: 0.2,
+                width: '100%',
+                height: 400,
+                legend: { position: 'right' },
+                pieSliceText: 'percentage',
+                slices: {
+                    4: { offset: 0.2 },
+                    12: { offset: 0.3 },
+                    14: { offset: 0.4 },
+                    15: { offset: 0.5 },
+                }
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById(elementId));
+            chart.draw(dataEstados, options);
+            jQuery("#load_casos_estados").css("display", "none");
+            console.log("gráfico de estados carregado!");
+        }
+
+        function drawChartDonoutMortos(ListaCovidData) {
+
+            if (ListaCovidData == null) return
+            var elementId = 'donutchart_mortos';
+
+            var dataMortos = new google.visualization.DataTable();
+
+            dataMortos.addColumn('string', 'Estados');
+            dataMortos.addColumn('number', 'Mortos');
+            console.log("Lista count: " + ListaCovidData.length);
+
+            for (var i = 0; i < ListaCovidData.length; i++) {
+                if (ListaCovidData[i].Estado != null && ListaCovidData[i].Mortos != null) {
+                    var myVal = parseFloat($.trim(ListaCovidData[i].Mortos));
+                    console.log([$.trim(ListaCovidData[i].Estado), { v: myVal, f: myVal.toFixed() }]);
+                    dataMortos.addRow([$.trim(ListaCovidData[i].Estado), { v: myVal, f: myVal.toFixed() }]);
+                }
+            }
+
+            var options = {
+                width: 1000,
+                height: 300,
+                chart: {
+                    title: 'Mortos',
+                    subtitle: 'por estados'
+                },
+                series: {
+                    0: { axis: 'distance' }, // Bind series 0 to an axis named 'distance'.
+                    1: { axis: 'brightness' } // Bind series 1 to an axis named 'brightness'.
+                },
+                axes: {
+                    y: {
+                        distance: { label: 'Quantidade' }, // Left y-axis.
+                        brightness: { side: 'right', label: 'apparent magnitude' } // Right y-axis.
+                    }
+                }
+            };
+
+            var chart = new google.charts.Bar(document.getElementById(elementId));
+            chart.draw(dataMortos, google.charts.Bar.convertOptions(options));
+            jQuery("#load_mortos_estados").css("display", "none");
+            console.log("gráfico de mortos carregado!");
+        }
+
+        function drawChartDonout() {
                 var data = google.visualization.arrayToDataTable([
                     ['Legendas', 'Casos'],
                     ['Infectados em tratamento', @ViewBag.CovidMesAtual.InfectadosEmTratamento],
@@ -279,219 +418,127 @@
 
                 var chart = new google.visualization.PieChart(document.getElementById('donutchart_day'));
                 chart.draw(data, options);
+                jQuery("#load_grafico_dias").css("display", "none");
+
                 console.log("gráficos 1: Carregado!");
         }
 
-        $('.carousel').carousel({
-            interval: 1000,
-            pause: "hover",
-            ride: true
-        })
+        jQuery.get("/Home/GetDataGraficoDias/",
+            function (ListaCovidData, status) {
 
-        });
-</script>
-
-<script async>
-
-    jQuery.get("/Home/GetDataGraficoDias/",
-        function (ListaCovidData, status) {
-
-            if (status == "success") {
-                console.log("iniciando gráficos de linha!");
-                drawGraph(ListaCovidData);
-            }
-            Carregartooltips();
-        });
-
-    function drawGraph(ListaCovidData) {
-        if (ListaCovidData == null) return
-        var elementIdMensal = 'GraficoDeMeses';
-        // Set chart options
-        var optionsMensal = {
-            chart: {
-                title: 'Progresso por meses, sobre os casos de COVID-19',
-                subtitle: 'Somente no Brasil',
-
-            },
-            width: 1000,
-            height: 300,
-            series: {
-                // Gives each series an axis name that matches the Y-axis below.
-                0: { axis: 'linha01' },
-                1: { axis: 'linha02' },
-                2: { axis: 'linha03' }
-            },
-            axes: {
-                // Adds labels to each axis; they don't have to match the axis names.
-                y: {
-                    linha01: { label: 'Quantidade (Confirmados)' },
-                    linha02: { label: 'Quantidade (Mortos)' },
-                    linha03: { label: 'Quantidade (Curados)' },
-                },
-                h: {
-                    curveType: 'function',
-                    legend: { position: 'bottom' }
-                },
-                x: {
-                    0: { side: 'bottom' }
+                if (status == "success") {
+                    console.log("iniciando gráficos de linha!");
+                    drawGraph(ListaCovidData);
                 }
 
-            }
+                Carregartooltips();
 
-        };
+            });
 
-        var dataMensal = new google.visualization.DataTable();
+        function drawGraph(ListaCovidData) {
+            if (ListaCovidData == null) return
+            var elementIdMensal = 'GraficoDeMeses';
+            // Set chart options
+            var optionsMensal = {
+                chart: {
+                    title: 'Progresso por meses, sobre os casos de COVID-19',
+                    subtitle: 'Somente no Brasil',
 
-        dataMensal.addColumn('string', 'Meses');
-        dataMensal.addColumn('number', 'Casos confirmados');
-        dataMensal.addColumn('number', 'Mortos');
-        dataMensal.addColumn('number', 'Infectados curados');
+                },
+                width: 1000,
+                height: 300,
+                series: {
+                    // Gives each series an axis name that matches the Y-axis below.
+                    0: { axis: 'linha01' },
+                    1: { axis: 'linha02' },
+                    2: { axis: 'linha03' }
+                },
+                axes: {
+                    // Adds labels to each axis; they don't have to match the axis names.
+                    y: {
+                        linha01: { label: 'Quantidade (Confirmados)' },
+                        linha02: { label: 'Quantidade (Mortos)' },
+                        linha03: { label: 'Quantidade (Curados)' },
+                    },
+                    h: {
+                        curveType: 'function',
+                        legend: { position: 'bottom' }
+                    },
+                    x: {
+                        0: { side: 'bottom' }
+                    }
 
-        for (var i = 0; i < ListaCovidData.ListaMes.length; i++) {
-            dataMensal.addRow([ListaCovidData.ListaMes[i].Mes,
-            ListaCovidData.ListaMes[i].CasosConfirmados,
-            ListaCovidData.ListaMes[i].Mortos,
-            ListaCovidData.ListaMes[i].InfectadosCurados]);
-        }
-
-        var viewMensal = new google.visualization.DataView(dataMensal);
-        viewMensal.setColumns([0, 1,
-            {
-                calc: "stringify",
-                sourceColumn: 1,
-                type: "string",
-                role: "annotation"
-            },
-            2,
-            {
-                calc: "stringify",
-                sourceColumn: 2,
-                type: "string",
-                role: "annotation"
-            }
-        ]);
-
-        var chartMensal = new google.charts.Line(document.getElementById(elementIdMensal));
-
-        chartMensal.draw(dataMensal, google.charts.Line.convertOptions(optionsMensal));
-        console.log("gráficos 2: Carregado!");
-        console.log();
-        console.log("Finalizando carregamento dos gráficos!");
-        console.log();
-        console.log("Página totalmente carregada!");
-    }
-
-    function Carregartooltips() {
-        console.log("ativando tooltips");
-        jQuery('[data-toggle="tooltip"]').tooltip();
-        console.log("tooltips ativados");
-    }
-</script>
-
-<script>
-    jQuery.get("/Home/GetDataGraficoCasosEstados/",
-        function (ListaCovidData, status) {
-
-            if (status == "success") {
-                console.log("iniciando gráficos de estados!");
-                drawChartDonoutEstados(ListaCovidData);
-            }
-            
-        });
-
-    function drawChartDonoutEstados(ListaCovidData) {
-
-        if (ListaCovidData == null) return
-        var elementId = 'donutchart_estados';
-
-        var dataEstados = new google.visualization.DataTable();
-
-        dataEstados.addColumn('string', 'Estado');
-        dataEstados.addColumn('number', 'Casos');
-        console.log("Lista count: " + ListaCovidData.length);
-
-        for (var i = 0; i < ListaCovidData.length; i++)
-        {
-            if (ListaCovidData[i].Estado != null && ListaCovidData[i].Casos != null)
-            {
-                var myVal = parseFloat($.trim(ListaCovidData[i].Casos));
-                console.log([$.trim(ListaCovidData[i].Estado), { v: myVal, f: myVal.toFixed() }]);
-                dataEstados.addRow([$.trim(ListaCovidData[i].Estado), { v: myVal, f: myVal.toFixed() }]);
-            }
-        }
-
-        var options = {
-            title: 'Infectados por estados',
-            pieHole: 0.2,
-            width: '100%',
-            height: 400,
-            legend: { position: 'right'},
-            pieSliceText: 'percentage',
-            slices: {
-                4: { offset: 0.2 },
-                12: { offset: 0.3 },
-                14: { offset: 0.4 },
-                15: { offset: 0.5 },
-            }
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById(elementId));
-        chart.draw(dataEstados, options);
-        console.log("gráfico de estados carregado!");
-    }
-</script>
-
-<script>
-    jQuery.get("/Home/GetDataGraficoMortosEstados/",
-        function (ListaCovidData, status) {
-
-            if (status == "success") {
-                console.log("iniciando gráficos de mortos!");
-                drawChartDonoutMortos(ListaCovidData);
-            }
-
-        });
-
-    function drawChartDonoutMortos(ListaCovidData) {
-
-        if (ListaCovidData == null) return
-        var elementId = 'donutchart_mortos';
-
-        var dataMortos = new google.visualization.DataTable();
-
-        dataMortos.addColumn('string', 'Estados');
-        dataMortos.addColumn('number', 'Mortos');
-        console.log("Lista count: " + ListaCovidData.length);
-
-        for (var i = 0; i < ListaCovidData.length; i++) {
-            if (ListaCovidData[i].Estado != null && ListaCovidData[i].Mortos != null) {
-                var myVal = parseFloat($.trim(ListaCovidData[i].Mortos));
-                console.log([$.trim(ListaCovidData[i].Estado), { v: myVal, f: myVal.toFixed() }]);
-                dataMortos.addRow([$.trim(ListaCovidData[i].Estado), { v: myVal, f: myVal.toFixed() }]);
-            }
-        }
-
-        var options = {
-            width: 1000,
-            height:300,
-            chart: {
-                title: 'Mortos',
-                subtitle: 'por estados'
-            },
-            series: {
-                0: { axis: 'distance' }, // Bind series 0 to an axis named 'distance'.
-                1: { axis: 'brightness' } // Bind series 1 to an axis named 'brightness'.
-            },
-            axes: {
-                y: {
-                    distance: { label: 'Quantidade' }, // Left y-axis.
-                    brightness: { side: 'right', label: 'apparent magnitude' } // Right y-axis.
                 }
-            }
-        };
 
-        var chart = new google.charts.Bar(document.getElementById(elementId));
-        chart.draw(dataMortos, google.charts.Bar.convertOptions(options));
-        console.log("gráfico de mortos carregado!");
-    }
+            };
+
+            var dataMensal = new google.visualization.DataTable();
+
+            dataMensal.addColumn('string', 'Meses');
+            dataMensal.addColumn('number', 'Casos confirmados');
+            dataMensal.addColumn('number', 'Mortos');
+            dataMensal.addColumn('number', 'Infectados curados');
+
+            for (var i = 0; i < ListaCovidData.ListaMes.length; i++) {
+                dataMensal.addRow([ListaCovidData.ListaMes[i].Mes,
+                ListaCovidData.ListaMes[i].CasosConfirmados,
+                ListaCovidData.ListaMes[i].Mortos,
+                ListaCovidData.ListaMes[i].InfectadosCurados]);
+            }
+
+            var viewMensal = new google.visualization.DataView(dataMensal);
+            viewMensal.setColumns([0, 1,
+                {
+                    calc: "stringify",
+                    sourceColumn: 1,
+                    type: "string",
+                    role: "annotation"
+                },
+                2,
+                {
+                    calc: "stringify",
+                    sourceColumn: 2,
+                    type: "string",
+                    role: "annotation"
+                }
+            ]);
+
+            var chartMensal = new google.charts.Line(document.getElementById(elementIdMensal));
+            jQuery("#load_grafico_meses").css("display", "none");
+            chartMensal.draw(dataMensal, google.charts.Line.convertOptions(optionsMensal));
+            console.log("gráficos 2: Carregado!");
+            console.log();
+            console.log("Finalizando carregamento dos gráficos!");
+            console.log();
+            console.log("Página totalmente carregada!");
+        }
+
+        function Carregartooltips() {
+            console.log("ativando tooltips");
+            jQuery('[data-toggle="tooltip"]').tooltip();
+            console.log("tooltips ativados");
+        }
+
+        
+
+
+      var divElement = document.getElementById('viz1586263510113');
+      var vizElement = divElement.getElementsByTagName('object')[0];
+      if (divElement.offsetWidth > 800) {
+        vizElement.style.width = '1100px';
+        vizElement.style.height = '850px';
+      } else if (divElement.offsetWidth > 500) {
+        vizElement.style.width = '1100px';
+        vizElement.style.height = '850px';
+      } else {
+        vizElement.style.width = '100%';
+        vizElement.style.height = '950px';
+      }
+      var scriptElement = document.createElement('script');
+      scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+      vizElement.parentNode.insertBefore(scriptElement, vizElement);
+
+
+        });
 </script>
+

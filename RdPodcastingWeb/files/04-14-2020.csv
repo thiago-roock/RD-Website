@@ -2352,7 +2352,7 @@
 10005,Sussex,Delaware,2020-04-14 23:33:31,38.66143781,-75.39031349,16,0,623,"Sussex, Delaware, US",639,US
 34037,Sussex,New Jersey,2020-04-14 23:33:31,41.13891592,-74.69118243,39,0,496,"Sussex, New Jersey, US",535,US
 51183,Sussex,Virginia,2020-04-14 23:33:31,36.92432914,-77.25791182,0,0,8,"Sussex, Virginia, US",8,US
-6101,Sutter,California,2020-04-14 23:33:31,39.03417539,-121.6945899,3,0,20,"Sutter, California, US",23,US
+6101,Sutter,California,2020-04-14 23:33:31,39.03417539,-121.6945899,2,0,21,"Sutter, California, US",23,US
 12121,Suwannee,Florida,2020-04-14 23:33:31,30.19746066,-82.99099670000003,3,0,72,"Suwannee, Florida, US",75,US
 56037,Sweetwater,Wyoming,2020-04-14 23:33:31,41.65943896,-108.8827882,0,0,9,"Sweetwater, Wyoming, US",9,US
 27151,Swift,Minnesota,2020-04-14 23:33:31,45.2829032,-95.68264092,0,0,1,"Swift, Minnesota, US",1,US
@@ -2473,7 +2473,6 @@
 90034,Unassigned,New Jersey,2020-04-14 23:33:31,,,2,0,1700,"Unassigned, New Jersey, US",1702,US
 90035,Unassigned,New Mexico,2020-04-14 23:33:31,,,0,0,0,"Unassigned, New Mexico, US",0,US
 90036,Unassigned,New York,2020-04-14 23:33:31,,,0,0,0,"Unassigned, New York, US",0,US
-,Unassigned,Northern Mariana Islands,2020-04-14 23:33:31,,,1,0,4,"Unassigned, Northern Mariana Islands, US",5,US
 90039,Unassigned,Ohio,2020-04-14 23:33:31,,,0,0,0,"Unassigned, Ohio, US",0,US
 90040,Unassigned,Oklahoma,2020-04-14 23:33:31,,,0,0,0,"Unassigned, Oklahoma, US",0,US
 90041,Unassigned,Oregon,2020-04-14 23:33:31,,,0,0,0,"Unassigned, Oregon, US",0,US
@@ -2797,7 +2796,7 @@
 ,,New South Wales,2020-04-14 23:41:11,-33.8688,151.2093,25,4,2841,"New South Wales, Australia",2870,Australia
 ,,Newfoundland and Labrador,2020-04-14 23:40:54,53.1355,-57.6604,3,0,241,"Newfoundland and Labrador, Canada",244,Canada
 ,,Ningxia,2020-03-16 08:47:05,37.2692,106.1655,0,75,0,"Ningxia, China",75,China
-,,Northern Mariana Islands,2020-04-14 23:33:31,15.0979,145.6739,1,0,5,"Northern Mariana Islands, US",6,US
+,,Northern Mariana Islands,2020-04-14 23:33:31,15.0979,145.6739,2,0,9,"Northern Mariana Islands, US",11,US
 ,,Northern Territory,2020-04-14 23:41:11,-12.4634,130.8456,0,6,22,"Northern Territory, Australia",28,Australia
 ,,Northwest Territories,2020-04-14 23:40:54,64.8255,-124.8457,0,0,5,"Northwest Territories, Canada",5,Canada
 ,,Nova Scotia,2020-04-14 23:40:54,44.681999999999995,-63.7443,3,0,514,"Nova Scotia, Canada",517,Canada

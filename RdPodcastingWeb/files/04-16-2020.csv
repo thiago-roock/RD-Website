@@ -2499,7 +2499,6 @@
 90034,Unassigned,New Jersey,2020-04-16 23:30:51,,,3,0,1045,"Unassigned, New Jersey, US",1048,US
 90035,Unassigned,New Mexico,2020-04-16 23:30:51,,,0,0,0,"Unassigned, New Mexico, US",0,US
 90036,Unassigned,New York,2020-04-16 23:30:51,,,0,0,0,"Unassigned, New York, US",0,US
-,Unassigned,Northern Mariana Islands,2020-04-16 23:30:51,,,1,0,6,"Unassigned, Northern Mariana Islands, US",7,US
 90039,Unassigned,Ohio,2020-04-16 23:30:51,,,16,0,-16,"Unassigned, Ohio, US",0,US
 90040,Unassigned,Oklahoma,2020-04-16 23:30:51,,,0,0,0,"Unassigned, Oklahoma, US",0,US
 90041,Unassigned,Oregon,2020-04-16 23:30:51,,,0,0,0,"Unassigned, Oregon, US",0,US
@@ -2825,7 +2824,7 @@
 ,,New South Wales,2020-04-16 23:38:19,-33.8688,151.2093,25,4,2868,"New South Wales, Australia",2897,Australia
 ,,Newfoundland and Labrador,2020-04-16 23:38:03,53.1355,-57.6604,3,0,249,"Newfoundland and Labrador, Canada",252,Canada
 ,,Ningxia,2020-03-16 08:47:05,37.2692,106.1655,0,75,0,"Ningxia, China",75,China
-69,,Northern Mariana Islands,2020-04-16 23:30:51,15.0979,145.6739,1,0,5,"Northern Mariana Islands, US",6,US
+69,,Northern Mariana Islands,2020-04-16 23:30:51,15.0979,145.6739,2,0,11,"Northern Mariana Islands, US",13,US
 ,,Northern Territory,2020-04-16 23:38:19,-12.4634,130.8456,0,6,22,"Northern Territory, Australia",28,Australia
 ,,Northwest Territories,2020-04-16 23:38:03,64.8255,-124.8457,0,0,5,"Northwest Territories, Canada",5,Canada
 ,,Nova Scotia,2020-04-16 23:38:03,44.681999999999995,-63.7443,3,0,576,"Nova Scotia, Canada",579,Canada

@@ -445,3 +445,5 @@ C:\Users\thiag\Documents\GitHub\Site\RdPodcastingWeb\bin\DocumentFormat.OpenXml.
 C:\Users\thiag\Documents\GitHub\Site\RdPodcastingWeb\bin\System.IO.Packaging.dll
 C:\Users\thiag\Documents\GitHub\Site\RdPodcastingWeb\bin\DocumentFormat.OpenXml.xml
 C:\Users\thiag\Documents\GitHub\Site\RdPodcastingWeb\bin\System.IO.Packaging.xml
+C:\Users\thiag\Documents\GitHub\Site\RdPodcastingWeb\bin\RdPodcasting.Domain.dll
+C:\Users\thiag\Documents\GitHub\Site\RdPodcastingWeb\bin\RdPodcasting.Domain.pdb

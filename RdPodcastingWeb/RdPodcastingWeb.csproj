@@ -253,10 +253,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Model\Covid19States.cs" />
-    <Compile Include="Model\dataCovid19.cs" />
-    <Compile Include="Model\EstadosCovid.cs" />
-    <Compile Include="Model\ResultLine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -304,6 +300,17 @@
     <Content Include="files\04-09-2020.csv" />
     <Content Include="files\04-10-2020.csv" />
     <Content Include="files\04-11-2020.csv" />
+    <Content Include="files\04-12-2020.csv" />
+    <Content Include="files\04-13-2020.csv" />
+    <Content Include="files\04-14-2020.csv" />
+    <Content Include="files\04-15-2020.csv" />
+    <Content Include="files\04-16-2020.csv" />
+    <Content Include="files\04-17-2020.csv" />
+    <Content Include="files\04-18-2020.csv" />
+    <Content Include="files\04-19-2020.csv" />
+    <Content Include="files\04-19-2020.json" />
+    <Content Include="files\04-20-2020.csv" />
+    <Content Include="files\04-21-2020.json" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\animation.gsap.min.js" />
     <Content Include="Imagens\about.jpg" />
@@ -431,6 +438,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RdPodcasting.Domain\RdPodcasting.Domain.csproj">
+      <Project>{252C5F3A-55B1-4DFE-9D33-013842A65C51}</Project>
+      <Name>RdPodcasting.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
