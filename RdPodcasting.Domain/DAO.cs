@@ -341,9 +341,9 @@ namespace RdPodcasting.Domain
             string fileName = caminho + mes + "-" + dia + "-" + ano + ".json";
             string resultado;
 
-            if (System.IO.File.Exists(fileName))
+            if (File.Exists(fileName))
             {
-                
+
                 resultado = File.ReadAllText(fileName);
 
                 lista = cr.DeserializeObject<List<rssChannelItem>>(resultado);
