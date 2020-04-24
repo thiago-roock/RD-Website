@@ -330,5 +330,73 @@ namespace RdPodcasting.Domain
 
             return CovidData;
         }
+
+        public List<rssChannelItem> ListaNoticiasRssPorArquivo(string dia, string mes, string ano)
+        {
+            CrawlerXmlConvert cr = new CrawlerXmlConvert();
+
+            List<rssChannelItem> lista = null;
+
+            string caminho = pathString;
+            string fileName = caminho + mes + "-" + dia + "-" + ano + ".json";
+            string resultado;
+
+            if (System.IO.File.Exists(fileName))
+            {
+                
+                resultado = File.ReadAllText(fileName);
+
+                lista = cr.DeserializeObject<List<rssChannelItem>>(resultado);
+            }
+
+            return lista;
+        }
+        public async Task<List<rssChannelItem>> ListaNoticiasRssPorHttp()
+        {
+            string _dia = AdicionarZero((DateTime.Now.Day).ToString());
+            string _mes = AdicionarZero(DateTime.Now.Month.ToString());
+            string _ano = DateTime.Now.Year.ToString();
+            List<rssChannelItem> listaNoticias = ListaNoticiasRssPorArquivo(_dia, _mes, _ano);
+            try
+            {
+                if (listaNoticias != null)
+                    return listaNoticias;
+
+                CrawlerXmlConvert cr = new CrawlerXmlConvert();
+                var resultado = cr.GetWebText("https://getpocket.com/users/*sso1574625684970c2f/feed/read");
+
+                var dataR = cr.DeserializeObject<rss>(resultado);
+
+                listaNoticias = dataR.channel.item
+                //.Where(l => DateTime.Parse(l.pubDate) >= DateTime.Now.AddDays(-1))
+                .Select(cl => new rssChannelItem
+                {
+                    title = cl.title,
+                    category = cl.category,
+                    guid = cl.guid,
+                    link = cl.link,
+                    pubDate = Convert.ToDateTime(cl.pubDate).ToString("D",
+                    CultureInfo.CreateSpecificCulture("pt-BR"))
+                }).ToList();
+
+                var xml = cr.SerializeObject(dataR.channel.item);
+                var caminho = pathString + _mes + "-" + _dia + "-" + _ano + ".xml";
+                System.IO.File.WriteAllText(caminho, xml);
+                
+            }
+            catch (Exception ex)
+            {
+             
+              
+
+            }
+
+            return listaNoticias;
+        }
+
+
+
+       
+
     }
 }

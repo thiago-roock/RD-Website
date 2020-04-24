@@ -11,6 +11,19 @@
     }
 }
 
+/* Cursor */
+.typed-cursor {
+}
+
+/* If fade out option is set */
+.typed-fade-out {
+}
+
+.card-img-top{
+    width:286px;
+    height:214.49px
+}
+
 
 .visible {
     visibility: visible;

@@ -48,6 +48,9 @@ namespace RdPodcastingWeb.Controllers
         public async Task<ActionResult> Covid19(string dataBusca)
         {
             dao = new DAO(Server.MapPath("~/files/"));
+
+           ViewBag.listaNoticias = await dao.ListaNoticiasRssPorHttp();
+
             string _dia = null;
             string _mes = null;
             string _ano = null;
@@ -122,7 +125,14 @@ namespace RdPodcastingWeb.Controllers
 
             return Json(listaEstadosFull, JsonRequestBehavior.AllowGet);
         }
-      
+
+        public async Task<JsonResult> ListaNoticiasRss()
+        {
+            dao = new DAO(Server.MapPath("~/files/"));
+            List<rssChannelItem> listaNoticias = await dao.ListaNoticiasRssPorHttp();
+
+            return Json(listaNoticias, JsonRequestBehavior.AllowGet);
+        }
         public async Task<List<ResultLine>> CarregarPorHttp()
         {
             dao = new DAO(Server.MapPath("~/files/"));

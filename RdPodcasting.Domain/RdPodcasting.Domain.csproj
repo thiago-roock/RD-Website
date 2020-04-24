@@ -58,8 +58,10 @@
   <ItemGroup>
     <Compile Include="DAO.cs" />
     <Compile Include="Model\Covid19States.cs" />
+    <Compile Include="Model\crawler.cs" />
     <Compile Include="Model\dataCovid19.cs" />
     <Compile Include="Model\EstadosCovid.cs" />
+    <Compile Include="Model\ObjetoRss.cs" />
     <Compile Include="Model\ResultLine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
