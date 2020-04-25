@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-16"?>
 <ArrayOfRssChannelItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <rssChannelItem>
+    <title>Outline - Read &amp;amp;amp; annotate without distractions</title>
+    <category>Unread</category>
+    <link>https://outline.com/3MXWE4</link>
+    <guid>https://outline.com/3MXWE4</guid>
+    <pubDate>Fri, 24 Apr 2020 00:25:32 -0500</pubDate>
+  </rssChannelItem>
+  <rssChannelItem>
+    <title>Brasil registra 407 mortes em 24 horas e número de casos confirmados chega a 49.492</title>
+    <category>Unread</category>
+    <link>https://oglobo.globo.com/sociedade/brasil-registra-407-mortes-em-24-horas-numero-de-casos-confirmados-chega-49492-1-24389763</link>
+    <guid>https://oglobo.globo.com/sociedade/brasil-registra-407-mortes-em-24-horas-numero-de-casos-confirmados-chega-49492-1-24389763</guid>
+    <pubDate>Thu, 23 Apr 2020 23:18:28 -0500</pubDate>
+  </rssChannelItem>
+  <rssChannelItem>
     <title>Site se autodestrói se você parar de postar</title>
     <category>Unread</category>
     <link>https://tecmundo.com.br/internet/152354-site-autodestroi-se-voce-parar-postar.htm</link>

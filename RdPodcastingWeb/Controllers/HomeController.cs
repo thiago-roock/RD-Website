@@ -49,7 +49,7 @@ namespace RdPodcastingWeb.Controllers
         {
             dao = new DAO(Server.MapPath("~/files/"));
 
-           ViewBag.listaNoticias = await dao.ListaNoticiasRssPorHttp();
+           ViewBag.listaNoticias = dao.ListaNoticiasRssPorHttp();
 
             string _dia = null;
             string _mes = null;
@@ -126,10 +126,10 @@ namespace RdPodcastingWeb.Controllers
             return Json(listaEstadosFull, JsonRequestBehavior.AllowGet);
         }
 
-        public async Task<JsonResult> ListaNoticiasRss()
+        public JsonResult ListaNoticiasRss()
         {
             dao = new DAO(Server.MapPath("~/files/"));
-            List<rssChannelItem> listaNoticias = await dao.ListaNoticiasRssPorHttp();
+            List<rssChannelItem> listaNoticias = dao.ListaNoticiasRssPorHttp();
 
             return Json(listaNoticias, JsonRequestBehavior.AllowGet);
         }

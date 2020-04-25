@@ -330,7 +330,6 @@ namespace RdPodcasting.Domain
 
             return CovidData;
         }
-
         public List<rssChannelItem> ListaNoticiasRssPorArquivo(string dia, string mes, string ano)
         {
             CrawlerXmlConvert cr = new CrawlerXmlConvert();
@@ -338,7 +337,7 @@ namespace RdPodcasting.Domain
             List<rssChannelItem> lista = null;
 
             string caminho = pathString;
-            string fileName = caminho + mes + "-" + dia + "-" + ano + ".json";
+            string fileName = caminho + mes + "-" + dia + "-" + ano + ".xml";
             string resultado;
 
             if (File.Exists(fileName))
@@ -347,11 +346,20 @@ namespace RdPodcasting.Domain
                 resultado = File.ReadAllText(fileName);
 
                 lista = cr.DeserializeObject<List<rssChannelItem>>(resultado);
+                int cont = 0;
+                foreach(var i in lista)
+                {
+                    lista[cont].pubDate = Convert.ToDateTime(i.pubDate).ToString("D",
+                    CultureInfo.CreateSpecificCulture("pt-BR"));
+                    cont++;
+                }
+
+
             }
 
             return lista;
         }
-        public async Task<List<rssChannelItem>> ListaNoticiasRssPorHttp()
+        public List<rssChannelItem> ListaNoticiasRssPorHttp()
         {
             string _dia = AdicionarZero((DateTime.Now.Day).ToString());
             string _mes = AdicionarZero(DateTime.Now.Month.ToString());
@@ -359,15 +367,14 @@ namespace RdPodcasting.Domain
             List<rssChannelItem> listaNoticias = ListaNoticiasRssPorArquivo(_dia, _mes, _ano);
             try
             {
-                if (listaNoticias != null)
-                    return listaNoticias;
+                
 
                 CrawlerXmlConvert cr = new CrawlerXmlConvert();
                 var resultado = cr.GetWebText("https://getpocket.com/users/*sso1574625684970c2f/feed/read");
 
                 var dataR = cr.DeserializeObject<rss>(resultado);
 
-                listaNoticias = dataR.channel.item
+               var listaNoticias2 = dataR.channel.item
                 //.Where(l => DateTime.Parse(l.pubDate) >= DateTime.Now.AddDays(-1))
                 .Select(cl => new rssChannelItem
                 {
@@ -378,6 +385,11 @@ namespace RdPodcasting.Domain
                     pubDate = Convert.ToDateTime(cl.pubDate).ToString("D",
                     CultureInfo.CreateSpecificCulture("pt-BR"))
                 }).ToList();
+
+                if (listaNoticias?.Count == listaNoticias2?.Count)
+                    return listaNoticias;
+                else
+                    listaNoticias = listaNoticias2;
 
                 var xml = cr.SerializeObject(dataR.channel.item);
                 var caminho = pathString + _mes + "-" + _dia + "-" + _ano + ".xml";

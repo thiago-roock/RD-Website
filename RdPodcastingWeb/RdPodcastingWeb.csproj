@@ -272,6 +272,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="files\04-23-2020.xml" />
+    <Content Include="files\04-24-2020.xml" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -315,6 +316,8 @@
     <Content Include="files\04-21-2020.csv" />
     <Content Include="files\04-22-2020.csv" />
     <Content Include="files\04-23-2020.json" />
+    <Content Include="files\04-23-2020.csv" />
+    <Content Include="files\04-24-2020.json" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\animation.gsap.min.js" />
     <Content Include="Imagens\about.jpg" />
