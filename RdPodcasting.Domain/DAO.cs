@@ -181,7 +181,7 @@ namespace RdPodcasting.Domain
 
             var client = new HttpClient();
             string queryString = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/" + mes + "-" + dia + "-" + ano + ".csv";
-
+            //https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/05-20-2020.csv
             HttpResponseMessage response;
             try
             {
@@ -224,12 +224,33 @@ namespace RdPodcasting.Domain
         }
         public DataCovid19 EncontrarPais(List<DataCovid19> listCovid, string NomeDoPais = "Brazil")
         {
+            List<DataCovid19> listCovidRetorno = new List<DataCovid19>();
+            DataCovid19 dtCovid19 = new DataCovid19();
             if (listCovid != null)
                 foreach (DataCovid19 pais in listCovid)
                     if (pais.Country_Region.Equals(NomeDoPais))
-                        return pais;
+                        listCovidRetorno.Add(pais);
 
-            return null;
+            int active = 0;
+            int confirmed = 0;
+            int deaths = 0;
+            int recovered = 0;
+            
+            foreach (DataCovid19 dtC in listCovidRetorno) 
+            {
+                active += int.Parse(dtC.Active);
+                confirmed += int.Parse(dtC.Confirmed);
+                deaths += int.Parse(dtC.Deaths);
+                recovered += int.Parse(dtC.Recovered);
+                dtCovid19.Last_Update = dtC.Last_Update;
+            }
+
+            dtCovid19.Active = active.ToString();
+            dtCovid19.Confirmed = confirmed.ToString();
+            dtCovid19.Deaths = deaths.ToString();
+            dtCovid19.Recovered = recovered.ToString();
+            
+            return dtCovid19;
         }
         public string AdicionarZero(string numero)
         {
