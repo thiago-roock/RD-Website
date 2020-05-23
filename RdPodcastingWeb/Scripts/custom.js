@@ -17,11 +17,11 @@
 $(document).ready(function () {
     "use strict";
 
-	/* 
+    /* 
 
-	1. Vars and Inits
+    1. Vars and Inits
 
-	*/
+    */
 
     setHeader();
     initMenu();
@@ -41,28 +41,27 @@ $(document).ready(function () {
         setHeader();
     });
 
-	/* 
+    /* 
 
-	2. Set Header
+    2. Set Header
 
-	*/
+    */
 
     function setHeader() {
         var header = $('.header');
 
         if ($(window).scrollTop() > 91) {
             header.addClass('scrolled');
-        }
-        else {
+        } else {
             header.removeClass('scrolled');
         }
     }
 
-	/* 
+    /* 
 
-	3. Init Menu
+    3. Init Menu
 
-	*/
+    */
 
     function initMenu() {
         if ($('.menu').length) {
@@ -80,11 +79,11 @@ $(document).ready(function () {
         }
     }
 
-	/* 
+    /* 
 
-	4. Init Favs
+    4. Init Favs
 
-	*/
+    */
 
     function initFavs() {
         if ($('.show_fav_icon').length) {
@@ -94,8 +93,7 @@ $(document).ready(function () {
                 icon.on('click', function () {
                     if (icon.hasClass('active')) {
                         icon.removeClass('active');
-                    }
-                    else {
+                    } else {
                         icon.addClass('active');
                     }
                 });
@@ -103,11 +101,11 @@ $(document).ready(function () {
         }
     }
 
-	/* 
+    /* 
 
-	5. Init SVG
+    5. Init SVG
 
-	*/
+    */
 
     function initSvg() {
         if ($('img.svg').length) {
@@ -140,21 +138,20 @@ $(document).ready(function () {
         }
     }
 
-	/* 
+    /* 
 
-	6. Init Gallery
+    6. Init Gallery
 
-	*/
+    */
 
     function initGallery() {
         if ($('.gallery_item').length) {
-            $('.colorbox').colorbox(
-                {
-                    rel: 'colorbox',
-                    photo: true,
-                    maxWidth: '95%',
-                    maxHeight: '95%'
-                });
+            $('.colorbox').colorbox({
+                rel: 'colorbox',
+                photo: true,
+                maxWidth: '95%',
+                maxHeight: '95%'
+            });
         }
     }
 

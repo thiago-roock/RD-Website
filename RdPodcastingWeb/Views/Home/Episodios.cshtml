@@ -1,0 +1,131 @@
+﻿@{
+    ViewBag.Title = "Episódios";
+}
+
+<link href="~/Content/episodios.css" rel="stylesheet" />
+<link href="~/Content/episodios_responsive.css" rel="stylesheet" />
+
+<div class="super_container">
+    <!-- Home -->
+    <div class="home">
+        <div class="parallax_background parallax-window background_image" data-parallax="scroll" style="background-image:url(/imagens/about.jpg)" data-speed="0.8"></div>
+        <div class="home_container d-flex flex-column align-items-center justify-content-center">
+            <div class="home_content">
+                <div class="home_title"><h1>Episódios</h1></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Episodes -->
+
+    <div class="episodes">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="season_links">
+                        <ul class="d-flex flex-row align-items-start justify-content-center flex-wrap">
+                            <li class="item_filter_btn" data-filter="*">Primeira Temporada</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row episodes_row">
+
+                <!-- Sidebar -->
+                <div class="col-lg-3">
+                    <div class="sidebar">
+
+                        <!-- Categories -->
+                        <div class="sidebar_list">
+                            <div class="sidebar_title">Categorias</div>
+                            <ul>
+                                <li><a href="#">ansiedade</a></li>
+                                <li><a href="#">TOC</a></li>
+                                <li><a href="#">insônia</a></li>
+                                <li><a href="#">autismo</a></li>
+                                <li><a href="#">psicanalise</a></li>
+                                <li><a href="#">depressão</a></li>
+                                <li><a href="#">transtorno bipolar</a></li>
+                                <li><a href="#">Recaídas</a></li>
+                                <li><a href="#">Tiques Nervosos</a></li>
+                                <li><a href="#">Pensamentos Suicidas</a></li>
+                                <li><a href="#">Síndrome do Pânico</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Tags -->
+                        <div class="sidebar_tags">
+                            <div class="sidebar_title">Tags</div>
+                            <div class="tags">
+                                <ul class="d-flex flex-row align-items-start justify-content-start flex-wrap">
+                                    <li><a href="#">ansiedade</a></li>
+                                    <li><a href="#">TOC</a></li>
+                                    <li><a href="#">insônia</a></li>
+                                    <li><a href="#">autismo</a></li>
+                                    <li><a href="#">psicanalise</a></li>
+                                    <li><a href="#">depressão</a></li>
+                                    <li><a href="#">transtorno bipolar</a></li>
+                                    <li><a href="#">Recaídas</a></li>
+                                    <li><a href="#">Tiques Nervosos</a></li>
+                                    <li><a href="#">Pensamentos Suicidas</a></li>
+                                    <li><a href="#">Síndrome do Pânico</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Archive -->
+                        <div class="sidebar_archive">
+                            <div class="sidebar_title">Plataformas de Streaming</div>
+                            <div class="dropdown">
+                                <ul>
+                                    <li class="dropdown_selected d-flex flex-row align-items-center justify-content-start">
+                                        <span>Escolha aqui</span><i class="fa fa-chevron-down ml-auto" aria-hidden="true"></i>
+                                                                 <ul>
+                                                                     <li><a href="https://podcasts.google.com/?feed=aHR0cHM6Ly9wY3IuYXBwbGUuY29tL2lkMTQ4MzIzMzc4Nw%3D%3D&hl=pt-BR" target="_blank">Google Podcasts</a></li>
+                                                                     <li><a href="https://open.spotify.com/show/2NLYU6UG5Er9dNp40c8JiJ" target="_blank">Spotify</a></li>
+                                                                     <li><a href="https://www.deezer.com/br/show/605282" target="_blank">Deezer</a></li>
+                                                                     <li><a href="https://www.megafono.host/podcast/remedios-demais" target="_blank">MegaFono</a></li>
+                                                                     <li><a href="https://podcasts.apple.com/br/podcast/rem%C3%A9dios-demais-podcast/id1483233787" target="_blank">Apple Podcasts</a></li>
+                                                                     <li><a href="https://www.breaker.audio/remedios-demais-podcast-1" target="_blank">Breaker.audio</a></li>
+                                                                     <li><a href="https://overcast.fm/itunes1483233787/rem-dios-demais-podcast" target="_blank">Overcast.fm</a></li>
+                                                                     <li><a href="https://pca.st/g174pbkl" target="_blank">Pocket Cast</a></li>
+                                                                     <li><a href="https://radiopublic.com/remdios-demais-podcast-G4gVAp/episodes" target="_blank">Radio Public</a></li>
+                                                                 </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Episodes -->
+                <div class="col-lg-9 episodes_col">
+                    <div class="episodes_container">
+
+                        <!-- Episode -->
+                        <div class="episode">
+
+                            <iframe src="https://anchor.fm/remedios-demais-podcast/embed" height="100%" width="100%" frameborder="0" scrolling="no"></iframe>
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="row page_nav_row">
+                <div class="col">
+                    <div class="page_nav d-flex flex-row align-items-center justify-content-center">
+                        <ul class="d-flex flex-row">
+                            <li class="active"><a href="#">1</a></li>
+
+                            <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+

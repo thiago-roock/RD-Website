@@ -1,37 +1,214 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-    <title>My Podcast</title>
+    <title>RD Podcast</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="My Podcast template project">
+    <meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0">
+    <meta http-equiv="cache-control" content="max-age=0">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+
+    <meta name="description" content="Um podcast ímpar para receber amigos, pessoas legais e você. Decidimos tudo de última hora, quase sempre ">
+    <meta name="keywords" content="podcast hosting,free podcast hosting,make a podcast,making a podcast,create a podcast,creating a podcast,podcast sponsorships,sponsor a podcast,free,audio,recording,audio clip,anchor,podcasts,voice,microphone,podcast,podcast creation,record,conversation,discussion,talk,talking,radio,public radio,npr,startup,talk radio">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="~/Imagens/banner04.png" />
+
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Content/colorbox.css" rel="stylesheet" />
-    <link href="~/Content/main_styles.css" rel="stylesheet" />
-    <link href="~/Content/responsive.css" rel="stylesheet" />
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    @RenderBody()
+    <div class="super_container">
+
+        <!-- Header -->
+
+        <header class="header trans_400">
+
+            <!-- Logo -->
+            <div class="logo">
+                <a href="@Url.Action("Index","Home")"><span>RD</span>podcasting<img class="lazyload" data-src="Imagens/play.png" alt=""></a>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start trans_400">
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-start justify-content-start">
+                                    <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                                    <li><a href="@Url.Action("Sobre","Home")">Sobre</a></li>
+                                    <li><a href="@Url.Action("Episodios","Home")">Episódios</a></li>
+                                    <li><a href="https://desacocheioemauhumor.blog" target="_blank">Blog</a></li>
+                                    <li><a href="@Url.Action("Contato","Home")">Contato</a></li>
+                                    <li><a href="@Url.Action("Covid19","Home")">Progresso do Coronavírus (COVID-19)</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit & Social -->
+            <div class="header_right d-flex flex-row align-items-start justify-content-start">
+
+                <!-- Submit
+                <div class="submit"><a href="#">Enviar Podcast</a></div>-->
+                <!-- Social -->
+                <div class="social">
+                    <ul class="d-flex flex-row align-items-start justify-content-start">
+                        <li><a href="https://www.facebook.com/rdpodcasting/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.instagram.com/rdpodcasting/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        <li><a href="https://soundcloud.com/rdpodcast" target="_blank"><i class="fa fa-soundcloud" aria-hidden="true"></i></a></li>
+                        <li><a href="https://anchor.fm/remedios-demais-podcast" target="_blank"><i class="fa fa-feed" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+
+                <!-- Hamburger -->
+                <div class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></div>
+
+            </div>
+        </header>
+
+
+
+        <div class="menu">
+            <div class="menu_content d-flex flex-column align-items-end justify-content-start">
+                <ul class="menu_nav_list text-right">
+                    <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                    <li><a href="@Url.Action("Sobre","Home")">Sobre</a></li>
+                    <li><a href="@Url.Action("Episodios","Home")">Episódios</a></li>
+                    <li><a href="https://desacocheioemauhumor.blog" target="_blank">Blog</a></li>
+                    <li><a href="@Url.Action("Contato","Home")">Contato</a></li>
+                </ul>
+                <div class="menu_extra d-flex flex-column align-items-end justify-content-start">
+                    <div class="menu_submit"><a href="#">Submit your podcast</a></div>
+                    <div class="social">
+                        <ul class="d-flex flex-row align-items-start justify-content-start">
+                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-soundcloud" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        @RenderBody()
+
+        <!-- Footer -->
+
+        <footer class="footer">
+            <div class="container">
+                <div class="row footer_logo_row">
+                    <div class="col d-flex flex-row align-items-center justify-content-center">
+                        <div class="logo">
+                            <a href="#"><span>Remédios demais</span>podcasting<img src="~/Imagens/play.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row footer_content_row">
+
+                    <!-- Tags -->
+                    <div class="col-lg-4">
+                        <div class="footer_title">Tags</div>
+                        <div class="footer_list">
+                            <div><div><a href="#">ansiedade</a></div></div>
+                            <div><div><a href="#">TOC</a></div></div>
+                            <div><div><a href="#">insônia </a></div></div>
+                            <div><div><a href="#">autismo</a></div></div>
+                            <div><div><a href="#">psicanalise</a></div></div>
+                            <div><div><a href="#">depressão</a></div></div>
+                            <div><div><a href="#">adicção</a></div></div>
+                            <div><div><a href="#">transtorno bipolar</a></div></div>
+                            <div><div><a href="#">Recaídas</a></div></div>
+                            <div><div><a href="#">Tiques Nervosos</a></div></div>
+                            <div><div><a href="#">Pensamentos Suicidas</a></div></div>
+                            <div><div><a href="#">Síndrome do Pânico</a></div></div>
+                        </div>
+                    </div>
+
+                    <!-- Últimos episódios -->
+                    <div class="col-lg-4">
+                        <div class="footer_title"></div>
+                        <div class="latest_container">
+
+
+
+                        </div>
+                    </div>
+
+                    <!-- Gallery -->
+                    <div class="col-lg-4">
+                        <div class="footer_title">Instagram</div>
+                        <div class="gallery d-flex flex-row align-items-start justify-content-start flex-wrap">
+
+                            <!-- Gallery Item -->
+                            <div class="gallery_item">
+                                <a class="colorbox" href="~/Imagens/banner01.png"><img src="~/Imagens/banner01.png" alt=""></a>
+                            </div>
+
+                            <!-- Gallery Item -->
+                            <div class="gallery_item">
+                                <a class="colorbox" href="~/Imagens/banner02.jpg"><img src="~/Imagens/banner02.jpg" alt=""></a>
+                            </div>
+
+                            <!-- Gallery Item -->
+                            <div class="gallery_item">
+                                <a class="colorbox" href="~/Imagens/banner04.png"><img src="~/Imagens/banner04.png" alt=""></a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row footer_social_row">
+                    <div class="col">
+                        <div class="footer_social">
+                            <ul class="d-flex flex-row align-items-center justify-content-center">
+                                <li><a href="https://www.facebook.com/rdpodcasting/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="https://www.instagram.com/rdpodcasting/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                <li><a href="https://soundcloud.com/rdpodcast" target="_blank"><i class="fa fa-soundcloud" aria-hidden="true"></i></a></li>
+                                <li><a href="https://anchor.fm/remedios-demais-podcast" target="_blank"><i class="fa fa-feed" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div> 
+                </br></br>
+                <span id="siteseal">
+                <script async type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=2mLPUPirnLQoby1twUuKVHwD2faaq2iw9tuBk3icPpM60ftOPptcBX3Vt0Qh"></script></span>
+                </br></br><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;
+                <script async>document.write(new Date().getFullYear());</script> uma produção <a href="https://desacocheioemauhumor.blog" target="_blank">De Saco Cheio e Mau Humor</a> | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
+            </div>
+        </footer>
+    </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
-    <script src="~/Scripts/popper.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/TweenMax.min.js"></script>
-    <script src="~/Scripts/TimelineMax.min.js"></script>
-    <script src="~/Scripts/ScrollMagic.min.js"></script>
-    <script src="~/Scripts/animation.gsap.min.js"></script>
-    <script src="~/Scripts/ScrollToPlugin.min.js"></script>
-    <script src="~/Scripts/easing.js.js"></script>
-    <script src="~/Scripts/jquery.colorbox-min.js"></script>
-    <script src="~/Scripts/progressbar.min.js"></script>
-    <script src="~/Scripts/parallax.min.js"></script>
-    <script src="~/Scripts/custom.js"></script>
+
+   
+    <script async src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script async src="~/Scripts/bootstrap.min.js"></script>
+    <script async src="~/Scripts/TweenMax.min.js"></script>
+    <script async src="~/Scripts/TimelineMax.min.js"></script>
+    <script async src="~/Scripts/ScrollMagic.min.js"></script>
+    <script async src="~/Scripts/animation.gsap.min.js"></script>
+    <script async src="~/Scripts/ScrollToPlugin.min.js"></script>
+    <script async src="~/Scripts/easing.js.js"></script>
+    <script async src="~/Scripts/jquery.colorbox-min.js"></script>
+    <script async src="~/Scripts/progressbar.min.js"></script>
+    <script async src="~/Scripts/parallax.min.js"></script>
+    <script async src="~/Scripts/custom.js"></script>
 </body>
 </html>
