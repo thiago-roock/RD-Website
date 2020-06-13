@@ -19,6 +19,15 @@
     <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Content/colorbox.css" rel="stylesheet" />
 
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  var OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "754c17fd-d929-4c2b-854a-aa4221ceae74",
+    });
+  });
+</script>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -45,7 +54,7 @@
                                     <li><a href="@Url.Action("Episodios","Home")">Episódios</a></li>
                                     <li><a href="https://desacocheioemauhumor.blog" target="_blank">Blog</a></li>
                                     <li><a href="@Url.Action("Contato","Home")">Contato</a></li>
-                                    <li><a href="@Url.Action("Covid19","Home")">Progresso do Coronavírus (COVID-19)</a></li>
+                                    <li><a href="https://covid19.remediosdemaispodcast.com.br/">Progresso do Coronavírus (COVID-19)</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -84,6 +93,7 @@
                     <li><a href="@Url.Action("Episodios","Home")">Episódios</a></li>
                     <li><a href="https://desacocheioemauhumor.blog" target="_blank">Blog</a></li>
                     <li><a href="@Url.Action("Contato","Home")">Contato</a></li>
+                    <li><a href="@Url.Action("Covid19","Home")">COVID-19 Status</a></li>
                 </ul>
                 <div class="menu_extra d-flex flex-column align-items-end justify-content-start">
                     <div class="menu_submit"><a href="#">Submit your podcast</a></div>
@@ -182,11 +192,9 @@
                         </div>
                     </div>
                 </div> 
-                </br></br>
                 <span id="siteseal">
                 <script async type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=2mLPUPirnLQoby1twUuKVHwD2faaq2iw9tuBk3icPpM60ftOPptcBX3Vt0Qh"></script></span>
-                </br></br><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                Copyright &copy;
+
                 <script async>document.write(new Date().getFullYear());</script> uma produção <a href="https://desacocheioemauhumor.blog" target="_blank">De Saco Cheio e Mau Humor</a> | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 
@@ -207,7 +215,6 @@
     <script async src="~/Scripts/ScrollToPlugin.min.js"></script>
     <script async src="~/Scripts/easing.js.js"></script>
     <script async src="~/Scripts/jquery.colorbox-min.js"></script>
-    <script async src="~/Scripts/progressbar.min.js"></script>
     <script async src="~/Scripts/parallax.min.js"></script>
     <script async src="~/Scripts/custom.js"></script>
 </body>

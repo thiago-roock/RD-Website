@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 ﻿using CsvHelper;
 using RdPodcastingWeb.Model;
 using System;
@@ -11,6 +12,9 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
+=======
+﻿using System.Web.Mvc;
+>>>>>>> Stashed changes
 
 namespace RdPodcastingWeb.Controllers
 {
@@ -30,14 +34,11 @@ namespace RdPodcastingWeb.Controllers
         {
             return View();
         }
-        public ActionResult About()
-        {
-            return View();
-        }
         public ActionResult Contato()
         {
             return View();
         }
+<<<<<<< Updated upstream
         public ActionResult teste()
         {
             return View();
@@ -416,5 +417,7 @@ namespace RdPodcastingWeb.Controllers
             }
         }
 
+=======
+>>>>>>> Stashed changes
     }
 }
