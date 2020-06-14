@@ -2330,7 +2330,6 @@
 90036,Unassigned,New York,2020-04-07 23:04:49,,,116,0,0,"Unassigned, New York, US",0,US
 90037,Unassigned,North Carolina,2020-04-07 23:04:49,,,2,0,0,"Unassigned, North Carolina, US",0,US
 90038,Unassigned,North Dakota,2020-04-07 23:04:49,,,0,0,0,"Unassigned, North Dakota, US",0,US
-,Unassigned,Northern Mariana Islands,2020-04-07 23:04:49,,,1,0,0,"Unassigned, Northern Mariana Islands, US",2,US
 90039,Unassigned,Ohio,2020-04-07 23:04:49,,,0,0,0,"Unassigned, Ohio, US",0,US
 90040,Unassigned,Oklahoma,2020-04-07 23:04:49,,,0,0,0,"Unassigned, Oklahoma, US",0,US
 90042,Unassigned,Pennsylvania,2020-04-07 23:04:49,,,0,0,0,"Unassigned, Pennsylvania, US",0,US
@@ -2641,7 +2640,7 @@
 ,,New South Wales,2020-04-07 23:11:31,-33.8688,151.2093,21,4,2661,"New South Wales, Australia",2686,Australia
 ,,Newfoundland and Labrador,2020-04-07 23:11:15,53.1355,-57.6604,1,0,0,"Newfoundland and Labrador, Canada",228,Canada
 ,,Ningxia,2020-03-16 08:47:05,37.2692,106.1655,0,75,0,"Ningxia, China",75,China
-,,Northern Mariana Islands,2020-04-07 23:04:49,15.0979,145.6739,1,0,0,",Northern Mariana Islands,US",6,US
+,,Northern Mariana Islands,2020-04-07 23:04:49,15.0979,145.6739,2,0,0,",Northern Mariana Islands,US",8,US
 ,,Northern Territory,2020-04-07 23:11:31,-12.4634,130.8456,0,2,26,"Northern Territory, Australia",28,Australia
 ,,Northwest Territories,2020-04-07 23:11:15,64.8255,-124.8457,0,0,0,",Northwest Territories,Canada",5,Canada
 ,,Nova Scotia,2020-04-07 23:11:15,44.681999999999995,-63.7443,1,0,0,"Nova Scotia, Canada",310,Canada

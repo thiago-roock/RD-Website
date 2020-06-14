@@ -49,12 +49,18 @@
     <Reference Include="CsvHelper, Version=15.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
       <HintPath>..\packages\CsvHelper.15.0.5\lib\net45\CsvHelper.dll</HintPath>
     </Reference>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
     <Reference Include="DocumentFormat.OpenXml, Version=2.11.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
       <HintPath>..\packages\DocumentFormat.OpenXml.2.11.0\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
     </Reference>
 >>>>>>> Stashed changes
+=======
+    <Reference Include="DocumentFormat.OpenXml, Version=2.10.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.10.1\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+>>>>>>> master
     <Reference Include="Microsoft.AspNetCore.Authentication.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNetCore.Authentication.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authentication.Abstractions.dll</HintPath>
     </Reference>
@@ -161,7 +167,18 @@
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.7.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing" />
+<<<<<<< HEAD
 <<<<<<< Updated upstream
+=======
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.7.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+>>>>>>> master
     <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.1\lib\netstandard2.0\System.Memory.dll</HintPath>
 =======
@@ -253,6 +270,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -263,8 +281,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Model\Covid19States.cs" />
-    <Compile Include="Model\dataCovid19.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -285,7 +301,9 @@
     <Content Include="Content\login.css" />
     <Content Include="Content\main_styles.css" />
     <Content Include="Content\responsive.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
     <Content Include="files\04-23-2020.xml" />
@@ -293,6 +311,10 @@
     <Content Include="files\04-25-2020.xml" />
     <Content Include="files\05-21-2020.xml" />
 >>>>>>> Stashed changes
+=======
+    <Content Include="files\04-23-2020.xml" />
+    <Content Include="files\04-24-2020.xml" />
+>>>>>>> master
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\fontawesome-webfont.eot" />
@@ -321,8 +343,11 @@
     <Content Include="files\04-09-2020.csv" />
     <Content Include="files\04-10-2020.csv" />
     <Content Include="files\04-11-2020.csv" />
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
+=======
+>>>>>>> master
     <Content Include="files\04-12-2020.csv" />
     <Content Include="files\04-13-2020.csv" />
     <Content Include="files\04-14-2020.csv" />
@@ -339,6 +364,7 @@
     <Content Include="files\04-23-2020.json" />
     <Content Include="files\04-23-2020.csv" />
     <Content Include="files\04-24-2020.json" />
+<<<<<<< HEAD
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-reboot.min.css.map" />
@@ -375,6 +401,8 @@
     <Content Include="files\05-20-2020.csv" />
     <Content Include="files\05-21-2020.json" />
 >>>>>>> Stashed changes
+=======
+>>>>>>> master
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\remediosdemaispodcast.com.br - Web Deploy.pubxml" />
     <None Include="Scripts\animation.gsap.min.js" />
@@ -390,6 +418,15 @@
     <Content Include="Imagens\blog_2.jpg" />
     <Content Include="Imagens\blog_3.jpg" />
     <Content Include="Imagens\contact.jpg" />
+    <Content Include="Imagens\covid01.jpg" />
+    <Content Include="Imagens\covid02.jpg" />
+    <Content Include="Imagens\covid03.jpg" />
+    <Content Include="Imagens\covid04.jpg" />
+    <Content Include="Imagens\covid05.jpg" />
+    <Content Include="Imagens\covid06.jpg" />
+    <Content Include="Imagens\covid07.jpg" />
+    <Content Include="Imagens\covid08.jpg" />
+    <Content Include="Imagens\covid09.jpg" />
     <Content Include="Imagens\episode.jpg" />
     <Content Include="Imagens\episode_1.jpg" />
     <Content Include="Imagens\episode_2.jpg" />
@@ -588,6 +625,7 @@
     <Content Include="Views\Home\Episodios.cshtml" />
     <Content Include="Views\Home\Contato.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
     <Content Include="Scripts\umd\popper.min.js.map" />
@@ -597,6 +635,14 @@
     <Content Include="Scripts\umd\popper-utils.js.map" />
     <Content Include="Views\Home\Index.cshtml" />
 >>>>>>> Stashed changes
+=======
+    <Content Include="Views\Home\_TaxaDeMortesPorIdade.cshtml" />
+    <Content Include="Views\Home\_TaxaDeMortesPorSexo.cshtml" />
+    <Content Include="Views\Home\_TaxaDeMortesPorDoencaCronicas.cshtml" />
+    <Content Include="Views\Home\_CardsBoletins.cshtml" />
+    <Content Include="Views\Home\_ListaCursos.cshtml" />
+    <Content Include="Views\Home\_Rodape.cshtml" />
+>>>>>>> master
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -604,6 +650,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
   <ItemGroup>
@@ -613,6 +660,14 @@
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
 >>>>>>> Stashed changes
+=======
+  <ItemGroup>
+    <ProjectReference Include="..\RdPodcasting.Domain\RdPodcasting.Domain.csproj">
+      <Project>{252C5F3A-55B1-4DFE-9D33-013842A65C51}</Project>
+      <Name>RdPodcasting.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+>>>>>>> master
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
