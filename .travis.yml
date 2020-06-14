@@ -1,7 +1,9 @@
 language: csharp
 solution: RdPodcastingWeb.sln
-install:
-  - travis_retry nuget restore -source "https://www.nuget.org/api/v2" ./RdPodcastingWeb.sln
-  script:
-  - xbuild RdPodcastingWeb.sln
-  - mono ./bin/RdPodcastingWeb.dll
+mono:
+  - latest
+  - 3.12.0
+  - 3.10.0
+script:
+    - dotnet restore
+    - dotnet test
