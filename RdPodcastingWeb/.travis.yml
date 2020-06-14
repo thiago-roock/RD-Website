@@ -1,0 +1,10 @@
+# blocklist
+branches:
+    except:
+    - dev
+    - develop
+  
+  # safelist
+  branches:
+    only:
+    - master

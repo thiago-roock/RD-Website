@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="pt-br">
-<>
+<head>
     <title>RD Podcast</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,22 +19,17 @@
     <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Content/colorbox.css" rel="stylesheet" />
 
-<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-<script>
-  var OneSignal = window.OneSignal || [];
-  OneSignal.push(function() {
-    OneSignal.init({
-      appId: "754c17fd-d929-4c2b-854a-aa4221ceae74",
-    });
-  });
-</script>
-  <!-- Required for IE11 Only -->
-  <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script> 
- 
-  <!-- Standard dependencies -->
-  <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-bundle.js"></script> 
-  <script src="https://unpkg.com/@statuspage/status-widget/dist/index.js"></script> 
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    <script>
+        var OneSignal = window.OneSignal || [];
+        OneSignal.push(function () {
+            OneSignal.init({
+                appId: "754c17fd-d929-4c2b-854a-aa4221ceae74",
+            });
+        });
+    </script>
 
+    <script src="https://8w1hhplrt998.statuspage.io/embed/script.js"></script>
     @Styles.Render("~/Content/css")
 </head>
 <body>
@@ -58,9 +53,10 @@
                                     <li><a href="@Url.Action("Index","Home")">Home</a></li>
                                     <li><a href="@Url.Action("Sobre","Home")">Sobre</a></li>
                                     <li><a href="@Url.Action("Episodios","Home")">Episódios</a></li>
-                                    <li><a href="https://desacocheioemauhumor.blog" target="_blank">Blog</a></li>
+                                    <li><a href="https://desacocheioemauhumor.wordpress.com/" target="_blank">Blog</a></li>
                                     <li><a href="@Url.Action("Contato","Home")">Contato</a></li>
-                                    <li><a href="https://covid19.remediosdemaispodcast.com.br/">Progresso do Coronavírus (COVID-19)</a></li>
+                                    <li><a href="https://rdpodcast.statuspage.io/" target="_blank">Status do sistema</a></li>
+                                    <li><a href="https://covid19.remediosdemaispodcast.com.br/" target="_blank">Covid-19 Status</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -97,9 +93,10 @@
                     <li><a href="@Url.Action("Index","Home")">Home</a></li>
                     <li><a href="@Url.Action("Sobre","Home")">Sobre</a></li>
                     <li><a href="@Url.Action("Episodios","Home")">Episódios</a></li>
-                    <li><a href="https://desacocheioemauhumor.blog" target="_blank">Blog</a></li>
+                    <li><a href="https://desacocheioemauhumor.wordpress.com/" target="_blank">Blog</a></li>
                     <li><a href="@Url.Action("Contato","Home")">Contato</a></li>
-                    <li><a href="@Url.Action("Covid19","Home")">COVID-19 Status</a></li>
+                    <li><a href="https://rdpodcast.statuspage.io/">Status do sistema</a></li>
+                    <li><a href="https://covid19.remediosdemaispodcast.com.br/">Status do Coronavírus</a></li>
                 </ul>
                 <div class="menu_extra d-flex flex-column align-items-end justify-content-start">
                     <div class="menu_submit"><a href="#">Submit your podcast</a></div>
@@ -197,21 +194,17 @@
                             </ul>
                         </div>
                     </div>
-                </div> 
+                </div>
+
                 <span id="siteseal">
-                <script async type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=2mLPUPirnLQoby1twUuKVHwD2faaq2iw9tuBk3icPpM60ftOPptcBX3Vt0Qh"></script></span>
+                    <script async type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=2mLPUPirnLQoby1twUuKVHwD2faaq2iw9tuBk3icPpM60ftOPptcBX3Vt0Qh"></script>
+                </span>
 
                 <script async>document.write(new Date().getFullYear());</script> uma produção <a href="https://desacocheioemauhumor.blog" target="_blank">De Saco Cheio e Mau Humor</a> | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-
             </div>
-        </footer>
+</footer>
     </div>
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-
-   
     <script async src="~/Scripts/jquery-3.3.1.min.js"></script>
     <script async src="~/Scripts/bootstrap.min.js"></script>
     <script async src="~/Scripts/TweenMax.min.js"></script>

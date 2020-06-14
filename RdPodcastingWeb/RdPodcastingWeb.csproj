@@ -49,18 +49,6 @@
     <Reference Include="CsvHelper, Version=15.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
       <HintPath>..\packages\CsvHelper.15.0.5\lib\net45\CsvHelper.dll</HintPath>
     </Reference>
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
-    <Reference Include="DocumentFormat.OpenXml, Version=2.11.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
-      <HintPath>..\packages\DocumentFormat.OpenXml.2.11.0\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
-    </Reference>
->>>>>>> Stashed changes
-=======
-    <Reference Include="DocumentFormat.OpenXml, Version=2.10.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
-      <HintPath>..\packages\DocumentFormat.OpenXml.2.10.1\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
-    </Reference>
->>>>>>> master
     <Reference Include="Microsoft.AspNetCore.Authentication.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNetCore.Authentication.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authentication.Abstractions.dll</HintPath>
     </Reference>
@@ -166,37 +154,6 @@
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.7.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
-    <Reference Include="System.Drawing" />
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
-    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
-      <Private>True</Private>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.IO.Packaging, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.IO.Packaging.4.7.0\lib\net46\System.IO.Packaging.dll</HintPath>
-    </Reference>
->>>>>>> master
-    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Memory.4.5.1\lib\netstandard2.0\System.Memory.dll</HintPath>
-=======
-    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
-      <Private>True</Private>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.IO.Packaging, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.IO.Packaging.4.7.0\lib\net46\System.IO.Packaging.dll</HintPath>
-    </Reference>
-    <Reference Include="System.IO.Pipelines, Version=4.0.2.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.IO.Pipelines.4.7.2\lib\net461\System.IO.Pipelines.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
->>>>>>> Stashed changes
-    </Reference>
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
@@ -277,7 +234,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -298,23 +254,9 @@
     <Content Include="Content\episodios.css" />
     <Content Include="Content\episodios_responsive.css" />
     <Content Include="Content\font-awesome.min.css" />
-    <Content Include="Content\login.css" />
     <Content Include="Content\main_styles.css" />
     <Content Include="Content\responsive.css" />
-    <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
-    <Content Include="files\04-23-2020.xml" />
-    <Content Include="files\04-24-2020.xml" />
-    <Content Include="files\04-25-2020.xml" />
-    <Content Include="files\05-21-2020.xml" />
->>>>>>> Stashed changes
-=======
-    <Content Include="files\04-23-2020.xml" />
-    <Content Include="files\04-24-2020.xml" />
->>>>>>> master
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\fontawesome-webfont.eot" />
@@ -322,87 +264,12 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
-    <Content Include="files\03-22-2020.csv" />
-    <Content Include="files\03-23-2020.csv" />
-    <Content Include="files\03-24-2020.csv" />
-    <Content Include="files\03-25-2020.csv" />
-    <Content Include="files\03-26-2020.csv" />
-    <Content Include="files\03-27-2020.csv" />
-    <Content Include="files\03-28-2020.csv" />
-    <Content Include="files\03-29-2020.csv" />
-    <Content Include="files\03-30-2020.csv" />
-    <Content Include="files\03-31-2020.csv" />
-    <Content Include="files\04-01-2020.csv" />
-    <Content Include="files\04-02-2020.csv" />
-    <Content Include="files\04-03-2020.csv" />
-    <Content Include="files\04-04-2020.csv" />
-    <Content Include="files\04-05-2020.csv" />
-    <Content Include="files\04-06-2020.csv" />
-    <Content Include="files\04-07-2020.csv" />
-    <Content Include="files\04-08-2020.csv" />
-    <Content Include="files\04-09-2020.csv" />
-    <Content Include="files\04-10-2020.csv" />
-    <Content Include="files\04-11-2020.csv" />
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> master
-    <Content Include="files\04-12-2020.csv" />
-    <Content Include="files\04-13-2020.csv" />
-    <Content Include="files\04-14-2020.csv" />
-    <Content Include="files\04-15-2020.csv" />
-    <Content Include="files\04-16-2020.csv" />
-    <Content Include="files\04-17-2020.csv" />
-    <Content Include="files\04-18-2020.csv" />
-    <Content Include="files\04-19-2020.csv" />
-    <Content Include="files\04-19-2020.json" />
-    <Content Include="files\04-20-2020.csv" />
-    <Content Include="files\04-21-2020.json" />
-    <Content Include="files\04-21-2020.csv" />
-    <Content Include="files\04-22-2020.csv" />
-    <Content Include="files\04-23-2020.json" />
-    <Content Include="files\04-23-2020.csv" />
-    <Content Include="files\04-24-2020.json" />
-<<<<<<< HEAD
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-reboot.min.css.map" />
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="files\04-24-2020.csv" />
-    <Content Include="files\04-25-2020.csv" />
-    <Content Include="files\04-25-2020.json" />
-    <Content Include="files\04-26-2020.csv" />
-    <Content Include="files\04-27-2020.csv" />
-    <Content Include="files\04-28-2020.csv" />
-    <Content Include="files\04-29-2020.csv" />
-    <Content Include="files\04-30-2020.csv" />
-    <Content Include="files\05-01-2020.csv" />
-    <Content Include="files\05-02-2020.csv" />
-    <Content Include="files\05-03-2020.csv" />
-    <Content Include="files\05-04-2020.csv" />
-    <Content Include="files\05-05-2020.csv" />
-    <Content Include="files\05-06-2020.csv" />
-    <Content Include="files\05-07-2020.csv" />
-    <Content Include="files\05-08-2020.csv" />
-    <Content Include="files\05-09-2020.csv" />
-    <Content Include="files\05-10-2020.csv" />
-    <Content Include="files\05-11-2020.csv" />
-    <Content Include="files\05-12-2020.csv" />
-    <Content Include="files\05-13-2020.csv" />
-    <Content Include="files\05-14-2020.csv" />
-    <Content Include="files\05-15-2020.csv" />
-    <Content Include="files\05-16-2020.csv" />
-    <Content Include="files\05-17-2020.csv" />
-    <Content Include="files\05-18-2020.csv" />
-    <Content Include="files\05-19-2020.csv" />
-    <Content Include="files\05-20-2020.csv" />
-    <Content Include="files\05-21-2020.json" />
->>>>>>> Stashed changes
-=======
->>>>>>> master
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\remediosdemaispodcast.com.br - Web Deploy.pubxml" />
     <None Include="Scripts\animation.gsap.min.js" />
@@ -416,42 +283,15 @@
     <Content Include="Imagens\blog.jpg" />
     <Content Include="Imagens\blog_1.jpg" />
     <Content Include="Imagens\blog_2.jpg" />
-    <Content Include="Imagens\blog_3.jpg" />
+    <Content Include="Imagens\brown-brick-building-during-night-time-4389409.jpg" />
     <Content Include="Imagens\contact.jpg" />
-    <Content Include="Imagens\covid01.jpg" />
-    <Content Include="Imagens\covid02.jpg" />
-    <Content Include="Imagens\covid03.jpg" />
-    <Content Include="Imagens\covid04.jpg" />
-    <Content Include="Imagens\covid05.jpg" />
-    <Content Include="Imagens\covid06.jpg" />
-    <Content Include="Imagens\covid07.jpg" />
-    <Content Include="Imagens\covid08.jpg" />
-    <Content Include="Imagens\covid09.jpg" />
+    <Content Include="Imagens\dark-clouds-in-the-sky-3888585.jpg" />
+    <Content Include="Imagens\different-medication-pills-and-capsules-on-red-background-3683040.jpg" />
     <Content Include="Imagens\episode.jpg" />
-    <Content Include="Imagens\episode_1.jpg" />
-    <Content Include="Imagens\episode_2.jpg" />
-    <Content Include="Imagens\episode_3.jpg" />
-    <Content Include="Imagens\episode_4.jpg" />
-    <Content Include="Imagens\episode_5.jpg" />
     <Content Include="Imagens\film.svg" />
-    <Content Include="Imagens\gallery_1.jpg" />
-    <Content Include="Imagens\gallery_1_large.jpg" />
-    <Content Include="Imagens\gallery_2.jpg" />
-    <Content Include="Imagens\gallery_2_large.jpg" />
-    <Content Include="Imagens\gallery_3.jpg" />
-    <Content Include="Imagens\gallery_3_large.jpg" />
-    <Content Include="Imagens\gallery_4.jpg" />
-    <Content Include="Imagens\gallery_4_large.jpg" />
-    <Content Include="Imagens\gallery_5.jpg" />
-    <Content Include="Imagens\gallery_5_large.jpg" />
-    <Content Include="Imagens\guest_1.jpg" />
-    <Content Include="Imagens\guest_2.jpg" />
-    <Content Include="Imagens\guest_3.jpg" />
-    <Content Include="Imagens\login.jpg" />
     <Content Include="Imagens\heart.svg" />
     <Content Include="Imagens\index.jpg" />
     <Content Include="Imagens\laner.jpg" />
-    <Content Include="Imagens\man.png" />
     <Content Include="Imagens\mesadegravações.JPG" />
     <Content Include="Imagens\milestones.jpg" />
     <Content Include="Imagens\mute-white.png" />
@@ -474,20 +314,11 @@
     <Content Include="Imagens\play_2.png" />
     <Content Include="Imagens\play_logo.svg" />
     <Content Include="Imagens\search.png" />
-    <Content Include="Imagens\show_1.jpg" />
-    <Content Include="Imagens\show_2.jpg" />
-    <Content Include="Imagens\show_3.jpg" />
-    <Content Include="Imagens\show_4.jpg" />
-    <Content Include="Imagens\show_5.jpg" />
-    <Content Include="Imagens\show_6.jpg" />
-    <Content Include="Imagens\show_7.jpg" />
     <Content Include="Imagens\speaker-2.svg" />
     <Content Include="Imagens\speaker.svg" />
     <Content Include="Imagens\speech-bubble.svg" />
     <Content Include="Imagens\television.svg" />
     <Content Include="Imagens\thiago.jpg" />
-    <Content Include="Imagens\user_1.jpg" />
-    <Content Include="Imagens\user_2.jpg" />
     <Content Include="Imagens\vol-white.png" />
     <Content Include="Imagens\vol.png" />
     <Content Include="Imagens\weekly.jpg" />
@@ -624,25 +455,12 @@
     <Content Include="Views\Home\Sobre.cshtml" />
     <Content Include="Views\Home\Episodios.cshtml" />
     <Content Include="Views\Home\Contato.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper.js.flow" />
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
     <Content Include="Scripts\umd\popper-utils.js.map" />
     <Content Include="Views\Home\Index.cshtml" />
->>>>>>> Stashed changes
-=======
-    <Content Include="Views\Home\_TaxaDeMortesPorIdade.cshtml" />
-    <Content Include="Views\Home\_TaxaDeMortesPorSexo.cshtml" />
-    <Content Include="Views\Home\_TaxaDeMortesPorDoencaCronicas.cshtml" />
-    <Content Include="Views\Home\_CardsBoletins.cshtml" />
-    <Content Include="Views\Home\_ListaCursos.cshtml" />
-    <Content Include="Views\Home\_Rodape.cshtml" />
->>>>>>> master
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -650,24 +468,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
->>>>>>> Stashed changes
-=======
-  <ItemGroup>
-    <ProjectReference Include="..\RdPodcasting.Domain\RdPodcasting.Domain.csproj">
-      <Project>{252C5F3A-55B1-4DFE-9D33-013842A65C51}</Project>
-      <Name>RdPodcasting.Domain</Name>
-    </ProjectReference>
-  </ItemGroup>
->>>>>>> master
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -697,10 +503,4 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target> -->
 </Project>
