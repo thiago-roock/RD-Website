@@ -1,6 +1,12 @@
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+﻿using CsvHelper;
+using RdPodcastingWeb.Model;
+=======
 ﻿using Newtonsoft.Json;
 using RdPodcasting.Domain;
 using RdPodcasting.Domain.Model;
+>>>>>>> master
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -8,6 +14,9 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+=======
+﻿using System.Web.Mvc;
+>>>>>>> Stashed changes
 
 namespace RdPodcastingWeb.Controllers
 {
@@ -29,14 +38,18 @@ namespace RdPodcastingWeb.Controllers
         {
             return View();
         }
-        public ActionResult About()
-        {
-            return View();
-        }
         public ActionResult Contato()
         {
             return View();
         }
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+        public ActionResult teste()
+        {
+            return View();
+        }
+=======
+>>>>>>> master
 
         [Route("{dataBusca:string}")]
         public async Task<ActionResult> Covid19(string dataBusca)
@@ -192,5 +205,7 @@ namespace RdPodcastingWeb.Controllers
             return lista;
         }
 
+=======
+>>>>>>> Stashed changes
     }
 }
